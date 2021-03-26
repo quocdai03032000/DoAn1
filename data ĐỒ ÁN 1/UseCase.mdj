@@ -3370,7 +3370,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF4SSIlWZdBIhA="
 					},
-					"name": "UseCase Đồ án 1",
+					"name": "UseCase ",
 					"ownedViews": [
 						{
 							"_type": "UMLActorView",
