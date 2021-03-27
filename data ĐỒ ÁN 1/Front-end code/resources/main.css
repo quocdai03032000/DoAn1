@@ -33,8 +33,9 @@
 /* footer */
 .footer_main{
     margin:0 auto;
-    width: auto;
+    width: 100%;
     height:auto;
+    list-style: none;
     background-color: #0042A6;
 }
 .item_logo{
@@ -43,5 +44,9 @@
 }
 .item_detail_huflit{
     position: absolute;
-    right: 30px;
+    right: 100px;
+}
+.item_detail_list{
+    display: flex;
+    line-height: 3px;
 }
