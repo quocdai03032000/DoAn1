@@ -2192,7 +2192,7 @@
 								"$ref": "AAAAAAF4TdecxZkREt8="
 							},
 							"name": "Mã tình trang",
-							"type": "BIT",
+							"type": "INT",
 							"length": 0
 						},
 						{
@@ -2233,7 +2233,7 @@
 								"$ref": "AAAAAAF4TdlfbJleRiM="
 							},
 							"name": "Mã tình trang",
-							"type": "BIT",
+							"type": "INT",
 							"length": 0,
 							"primaryKey": true
 						},
@@ -2344,7 +2344,7 @@
 								"$ref": "AAAAAAF4Tdxnepm8znM="
 							},
 							"name": "Mã tình trạng sd",
-							"type": "BIT",
+							"type": "INT",
 							"length": 0,
 							"primaryKey": true
 						},
@@ -2471,7 +2471,7 @@
 								"$ref": "AAAAAAF4Td0oAZnZdYI="
 							},
 							"name": "Mã tình trạng SD",
-							"type": "BIT",
+							"type": "INT",
 							"length": 0,
 							"foreignKey": true
 						},
