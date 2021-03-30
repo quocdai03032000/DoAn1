@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,20 +11,35 @@
     <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <title>Login</title>
-    
+
 </head>
+
 <body>
-    <div class="login">
+    <form action="javascrip:void(0);" class="login">
+        <div class="header-login">
+            <img src="./img/logoHuflit.png" alt="logo trường huflit">
+            <h4>TRƯỜNG ĐẠI HỌC NGOẠI NGỮ - TIN HỌC </h4>
+            <H4>THÀNH PHỐ HỒ CHÍ MINH (HUFLIT)</H4>
+            <H5>Thư viện trường học</H5>            
+        </div>
+        <div class="line">
+            <div class="line-or"></div>
+            <div class="or">_*_</div>
+        </div>
+
         <div class="login-field">
             <i class="login-icon fas fa-user"></i>
-            <input type="text" class="login-input" placeholder="Nhập tên tài khoản">
+            <input type="text" class="login-input" placeholder="Nhập tên tài khoản" required>
         </div>
         <div class="login-field">
             <i class="login-icon fas fa-lock"></i>
-            <input type="password" class="login-input" placeholder="Nhập mật khẩu">
+            <input type="password" class="login-input" placeholder="Nhập mật khẩu" required>
         </div>
-        <a href="#" class="login-fogot-password">Forgot password ?</a>
-        <button class="login-submit">Login</button>
-    </div>
+        <a href="#" class="login-forgot-password">Forgot password ?</a>
+        <button type="submit" class="login-submit">Login</button>
+
+    </form>
+
 </body>
+
 </html>
