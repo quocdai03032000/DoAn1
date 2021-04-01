@@ -1,5 +1,6 @@
 body {
     font-family: Arial;
+    margin: 0px;
   }
   
   * {
@@ -23,8 +24,8 @@ body {
 
 .h4{
     color: rgb(41, 173, 235);
-    font-style: italic;
-    font-family: inherit;
+ 
+
 }
 
 .bottom-hr{
@@ -34,22 +35,6 @@ body {
 
 /*-------CSS Tra Cuu---------------------------------------------*/
 /*form đầu tiên form xin chào*/
-.TraCuu{
-    margin-top: 3px ;
-    margin-left: 5px;
-    border-radius: 5px;
-    background-color: rgb(151, 148, 147);
-    line-height: 1em;
-}
-
-.TraCuu-XinChao{
-    padding: 15px;
-}
-
-#h1xc{
-    font-family: initial;
-    font-style: initial;
-}
 
 #inputxc{
     border-radius: 10px; 
@@ -118,7 +103,7 @@ body {
 
  #textSearch{
     height: 30px;
-    width: auto;
+    width: 500px;
     float: left;
  }
 
@@ -140,6 +125,12 @@ body {
 
 }
 
+/*----chỉnh images của sách-------------------------------------------_*/
+
+.item-img-book{
+    height: 350px;
+    width: 230px;
+}
 /*trợ giúp tìm kiếm*/
 .TroGiupTimKiem{
     background-color: rgb(255, 255, 255);
@@ -232,4 +223,224 @@ body {
 .item-text-button:hover{
     background-color: rgb(3, 20, 97);
     color: lightgrey;
+}
+
+
+
+/*-------CSS Thông Tin Sản Phẩm---------------------------------------------*/
+
+.Center h1{
+    text-align: center;
+    font-weight: 300;
+    font-family: inherit;
+    padding: 20px;
+    width: auto;
+}
+
+.Center h1 img{
+    height: 50px;
+    padding-right:10px ;
+}
+
+.Grid-ThongTinSanPham{
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+}
+
+@media (max-width:1100px){
+.Grid-ThongTinSanPham{
+    flex-direction: column;
+}}
+.Grid-left-img{
+    width: 30%;
+    float: left;
+
+}
+.Grid-left-img img{
+    height: auto;
+    width: auto;
+    padding: 15px;
+    padding-left: 100px;
+}
+.Grid-rigth-content{
+    width: 70%;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    
+}
+@media (max-width:1000px){
+    .Grid-rigth-content{
+        width: auto;
+    }
+    .form-label{
+        padding-left: 0px;
+        width: auto;
+        margin: 0px;
+        
+    }
+    .Grid-rigth-content form{
+        padding: 0px;
+    }
+    .firm-input{
+        width: auto;
+    }
+}
+
+.Grid-rigth-content form{
+   width: 100%;
+   padding: 10px;
+   display: flex;
+
+}
+@media (max-width:600px)
+{
+    .Grid-rigth-content form{
+    width: 100%;
+    }
+    .form-label{
+        width: 20%;
+    }
+    .for-input{
+        width: 80%;
+    }
+}
+/*---Duwosi thẻ hr 3 button lục tím cam--------------------------*/
+.bottom_hr{
+    width: auto;
+    height: auto;
+}
+.parameter{
+margin-left: 820px;
+}
+.green{
+    border-radius: 20px;
+    border: 1px solid black;
+    width: 120px;
+    text-align: center;
+    background-color: green;
+    padding: 4px;
+    float: left;
+    margin-right: 13px;
+}
+.blue{
+     border-radius: 20px;
+    border: 1px solid black;
+    width: 120px;
+    text-align: center;
+    background-color: rgba(4, 148, 243, 0.452);
+    padding: 4px;
+    float: left;
+    margin-right: 13px;
+}
+.oranges{
+    border-radius: 20px;
+    border: 1px solid black;
+    width: 180px;
+    text-align: center;
+    background-color: rgb(241, 129, 23);
+    padding: 4px;
+    float: left;
+    margin-right: 10px;
+}
+/*---table trên poter--------------------------*/
+.form-label{
+  width: 30%;
+  float: left;
+ text-align: end;
+
+}
+.form-input {
+    width: 70%;
+}
+.form-input #fluotXem{
+    width: 100px;
+}
+
+#star{
+  margin-bottom: 0px;
+
+}
+#star:visited{
+    background-image: url(./img/star-yellow.png);
+}
+#star-soluong{
+    width: 30px;
+}
+#span_soLuong_like{
+    width: 30px;
+}
+#star img{
+    object-fit: contain;
+    width:30px ;
+    height: 30px;
+
+}
+.button-thongtinsanpham{
+    margin-left: 0px;
+}
+#btn_QuayLai{
+  margin-left: 0px;
+  background-color: rgb(91, 153, 235);
+  color: black;
+  width: 100px;
+}
+#btn_QuayLai:hover{
+    background-color: rgb(9, 10, 82);
+    color: linen;
+}
+#btn_Muon{
+    margin-left: 10px;
+    background-color: rgb(91, 153, 235);
+    color: black;
+    width: 100px;
+}
+#btn_Muon:hover{
+    background-color: rgb(9, 10, 82);
+    color: linen;
+}
+
+.Center hr{
+    height: 2px;
+    background-color: black;
+    margin: 10px;
+}
+/*code chừa đễ viết phần chưa biết :))*/
+.bottom_hr{
+    width: auto;
+    height: 60px;
+}
+
+.table table{
+    width: 800px;
+    text-align: center;
+    margin-left: 280px;
+}
+#tr_top{
+    background-color: rgb(151, 149, 147);
+}
+#tr_bottom{
+    background-color: rgb(218, 217, 216);
+}
+.table{
+    width: auto;
+    display: flex;
+}
+@media (max-width:600px)
+{
+    .table table{
+        width: auto;
+        margin-left: 20px
+    }
+}
+@media (max-width:1100px)
+{
+    .table table{
+        width: auto;
+        margin-left: 100px;
+    }
 }

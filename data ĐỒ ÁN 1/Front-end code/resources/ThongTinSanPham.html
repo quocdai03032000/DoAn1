@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="LA.css">
-    <title>TraCuu</title>
+    <title>ThongTinSanPham</title>
 </head>
 <div class="media">
     <img class="mr-3 img-logo" src="img/HUFLIT_logo (1).png" alt="Generic placeholder image">
@@ -55,94 +55,71 @@
     </div>
 
 
-    <div class="Center" > 
-      <!--bottom form XinChao (form search)-->
-      <div class="form-search">
-          <form class="search" action="____________________________"> <!--@@@@-->
-           <select class="search-select" name="option">
-             <option value="" disabled selected>Từ Khóa Bất Kỳ</option>
-             <option value="1">Nhan Đề</option>
-             <option value="2">Tác Giả</option>
-             <option value="3">Chủ Đề</option>
-             <option value="4">Nhà Sản Xuất</option>
-           </select>
-            <input type="text" name="text-Search" id="textSearch" placeholder="Search.."> 
-            <button name="button-search" id="buttonSearch"><img  src="./img/search.png"></button><!--@@@@-->
-          </form>
+    <div class="Center" >
+      <div class="Center-h1">
+         <h1><img src="./img/book-icon.png" alt="icon_book">Thông Tin Sản Phẩm</h1>
       </div>
-
-
-     <!--bottom form search (from trợ giúp tìm kiếm)-->
-     <div class="TroGiupTimKiem">
-       <h5 style="color: rgb(24, 77, 0)">Trợ Giúp Tìm Kiếm</h5>
-       <p>Khi bạn chọn tìm kiếm theo từ khóa bất kỳ, hệ thống sẽ thức hiện lệnh tìm kiếm cùng lúc trên tất cả các trường nhan đề, tác giả, chủ đề, nhà xuất bản và ghi chú. 
-         Hoặc Bạn có thể lựa chọn một tiêu chí tìm kiếm cụ thể như : nhan đề, tác giả, chủ đề
-       </p>
-       <hr style="height:2px;border-width:0;color:rgb(7, 7, 7);background-color:rgb(3, 3, 3)">
-       <p>Nhập từ khóa bất kì mà bạn muốn tìm kiếm như:<br>
-       > <u>RFID</u> ><u>Computer Science</u> ><u>Harry Potter</u> ><u> Dan Brown</u></p>
-     </div>
-          <!--bottom form Trợ giúp tìm kiếm (from gợi ý)-->
-     <div class="GoiY">
-       <h5>Gợi Ý</h5>
-     </div> 
-     <div class="Grid">
-       <!--Grid collum 3-->
-       <div class="Grid-item"> <!--Gird đầu tiên-->
-         <div class="item-item">
-            <div class="item-img">
-              <img src="./imgsach/4.jpg" alt="Sách Đắc Nhân Tâm" class="item-img-book">
-            </div>
-            <div class="item-text">
-               <h3>Đắc Nhân Tâm</h3>
-               <br>
-               <p><b>Thể Loại :</b>Tư Duy - Kỹ Năng Sống</p>
-               <p><b>Tác Giả :</b>Dale Carnegie</p>
-               <p id="box-MoTa"><b>Mô Tả :</b>Đắc nhân tâm của Dale Carnegie là quyển sách duy nhất về thể loại self-help liên tục đứng đầu danh mục sách bán chạy nhất (best-selling Books)
-                 do báo The New York Times bình chọn suốt 10 năm liền. Được xuất bản năm 1936, với số lượng bán ra hơn 15 triệu bản, tính đến nay, sách đã được
-                 dịch ra ở hầu hết các ngôn ngữ, trong đó có cả Việt Nam, và đã nhận được sự đón tiếp nhiệt tình của đọc giả ở hầu hết các quốc gia.</p>
-              <button class="item-text-button" >Mượn</button>
-            </div>
-         </div>
-       </div>
-
-       <!--grid 2-->
-       <div class="Grid-item">
-        <div class="item-item">
-          <div class="item-img">
-            <img src="./imgsach/1.jpg" alt="Sách Đắc Nhân Tâm" class="item-img-book">
+      <div class="Grid-ThongTinSanPham">
+          <div class="Grid-left-img">
+              <img src="./imgsach/1.jpg" alt="Hinh anh sach">
           </div>
-          <div class="item-text">
-             <h3>Đắc Nhân Tâm</h3>
-             <br>
-             <p><b>Thể Loại :</b>Tư Duy - Kỹ Năng Sống</p>
-             <p><b>Tác Giả :</b>Dale Carnegie</p>
-             <p id="box-MoTa"><b>Mô Tả :</b>Đắc nhân tâm của Dale Carnegie là quyển sách duy nhất về thể loại self-help liên tục đứng đầu danh mục sách bán chạy nhất (best-selling Books)
-               do báo The New York Times bình chọn suốt 10 năm liền. Được xuất bản năm 1936, với số lượng bán ra hơn 15 triệu bản, tính đến nay, sách đã được
-               dịch ra ở hầu hết các ngôn ngữ, trong đó có cả Việt Nam, và đã nhận được sự đón tiếp nhiệt tình của đọc giả ở hầu hết các quốc gia.</p>
-            <button class="item-text-button" >Mượn</button>
+          <div class="Grid-rigth-content">
+            <form action="">
+              <div class="form-label">
+                <label for="ftenSach">Tên Sách :</label><br><br>
+                <label for="ftheLoaiSach">Thể Loại Sách :</label><br><br>
+                <label for="ftacGia" >Tác Giả :</label><br><br>
+                <label for="fnamXuatBan">Năm Xuất Bản :</label><br><br>
+                <label for="fnhaXuatBan">Nhà Xuất Bản :</label><br><br>
+                <label for="fluotXem">Lượt Xem :</label><br><br>
+                <label for="fmoTa">Mô Tả :</label><br><br>
+              </div>
+              <div class="form-input">
+                <input type="text" id="ftenSach" name="ftenSach" placeholder=""><br><br>
+                <input type="text" id="ftheLoaiSach" name="ftheLoaiSach"><br><br>
+                <input type="text" id="ftacGia" name="ftacGia"><br><br>
+                <input type="text" id="fnamXuatBan" name="fnamXuatBan"><br><br>
+                <input type="text" id="fnhaXuatBan" name="fnhaXuatBan"><br><br>
+                <input type="text" id="fluotXem" name="fluotXem">
+                <input type="image" id="star" name="star" src="./img/star.png"><b>Thích</b> <span  id="span_soLuong_like" name="span_soLuong_like">###</span></input>
+                <br><br>
+                <input type="" id="fmoTa" name="fmoTa"><br> <br>
+                <div class="button-thongtinsanpham">
+                  <input type="submit" id="btn_QuayLai" name="btn_QuayLai" value="Quay Lại">
+                  <input type="submit" id="btn_Muon" name="btn_Muon" value="Mượn">
+                </div>
+              </div>
+            </form>       
           </div>
-       </div>
       </div>
-      <div class="Grid-item">
-        <div class="item-item">
-          <div class="item-img">
-            <img src="./imgsach/13.jpg" alt="Sách Đắc Nhân Tâm" class="item-img-book">
+      <hr>
+      <div class="bottom_hr">
+        <div class="parameter">
+          <div class="green">
+            <b>Tổng Số : <span id="span_tongSo" name="span_tongSo">#</span></b>
           </div>
-          <div class="item-text">
-             <h3>Đắc Nhân Tâm</h3>
-             <br>
-             <p><b>Thể Loại :</b>Tư Duy - Kỹ Năng Sống</p>
-             <p><b>Tác Giả :</b>Dale Carnegie</p>
-             <p id="box-MoTa"><b>Mô Tả :</b>Đắc nhân tâm của Dale Carnegie là quyển sách duy nhất về thể loại self-help liên tục đứng đầu danh mục sách bán chạy nhất (best-selling Books)
-               do báo The New York Times bình chọn suốt 10 năm liền. Được xuất bản năm 1936, với số lượng bán ra hơn 15 triệu bản, tính đến nay, sách đã được
-               dịch ra ở hầu hết các ngôn ngữ, trong đó có cả Việt Nam, và đã nhận được sự đón tiếp nhiệt tình của đọc giả ở hầu hết các quốc gia.</p>
-            <button class="item-text-button" >Mượn</button>
+          <div class="blue">
+            <b>Sẳn Có : <span id="span_sanCo" name="span_sanCo">#</span></b>
           </div>
-       </div>
-     <!--/div-->
-     </div>
+          <div class="oranges">
+            <b>Đang cho mượn : <span id="span_dangChoMuon" name="span_dangChoMuon">#</span></b>
+          </div>
+        </div>
+      </div>
+      <div class="table">
+        <table>
+          <tr id="tr_top">
+            <th><b>Mã Sách</b></th>
+            <th><b>Tình Trạng</b></th>
+          </tr>
+          <tr id="tr_bottom">
+            <th><span  id="span_maSach" name="span_maSach">#######</span></th>
+            <th><span id="span_tinhTrang" name="span_tinhTrang">Còn</span></th>
+          </tr>
+        </table>
+      </div>
     </div>
+
       <footer class="navbar navbar-expand-lg footer_main row ">
         <div class="footer_main_logo">
           <span class="item_text" style="font-size: 30px;color: white; margin-left: 10px;">
