@@ -1928,7 +1928,7 @@
 								"$ref": "AAAAAAF4TdGKmJhNwmc="
 							},
 							"name": "Mã sách",
-							"type": "NVARCHAR",
+							"type": "INT",
 							"length": 0,
 							"primaryKey": true
 						},
@@ -1949,7 +1949,7 @@
 								"$ref": "AAAAAAF4TdGKmJhNwmc="
 							},
 							"name": "Mã tác giả",
-							"type": "NVARCHAR",
+							"type": "INT",
 							"length": 0,
 							"foreignKey": true
 						},
@@ -1960,7 +1960,7 @@
 								"$ref": "AAAAAAF4TdGKmJhNwmc="
 							},
 							"name": "Mã thể loại",
-							"type": "NVARCHAR",
+							"type": "INT",
 							"length": 0,
 							"foreignKey": true
 						},
@@ -1981,7 +1981,7 @@
 								"$ref": "AAAAAAF4TdGKmJhNwmc="
 							},
 							"name": "Mã nhà xuất bản",
-							"type": "NVARCHAR",
+							"type": "INT",
 							"length": 0,
 							"foreignKey": true
 						},
@@ -2012,7 +2012,7 @@
 								"$ref": "AAAAAAF4TdPDq5iNAyQ="
 							},
 							"name": "Mã tác giả",
-							"type": "NVARCHAR",
+							"type": "INT",
 							"length": 0,
 							"primaryKey": true
 						},
@@ -2072,7 +2072,7 @@
 								"$ref": "AAAAAAF4TdXz/Jiqt/U="
 							},
 							"name": "Mã nhà xuất bản",
-							"type": "NVARCHAR",
+							"type": "INT",
 							"length": 0,
 							"primaryKey": true
 						},
@@ -2111,7 +2111,7 @@
 								"$ref": "AAAAAAF4TdbI5Jj0Vh4="
 							},
 							"name": "Mã thể loại",
-							"type": "NVARCHAR",
+							"type": "INT",
 							"length": 0,
 							"primaryKey": true
 						},
@@ -2171,7 +2171,7 @@
 								"$ref": "AAAAAAF4TdecxZkREt8="
 							},
 							"name": "Mã đầu sách",
-							"type": "NVARCHAR",
+							"type": "INT",
 							"length": 0,
 							"primaryKey": true
 						},
@@ -2182,7 +2182,7 @@
 								"$ref": "AAAAAAF4TdecxZkREt8="
 							},
 							"name": "Số kiểm soát",
-							"type": "INTEGER",
+							"type": "INT",
 							"length": 0
 						},
 						{
@@ -2212,7 +2212,7 @@
 								"$ref": "AAAAAAF4TdecxZkREt8="
 							},
 							"name": "Mã sách",
-							"type": "NVARCHAR",
+							"type": "INT",
 							"length": 0,
 							"foreignKey": true
 						}
@@ -2264,7 +2264,7 @@
 								"$ref": "AAAAAAF4TdohJpl7flU="
 							},
 							"name": "Mã account",
-							"type": "NVARCHAR",
+							"type": "INT",
 							"length": 0,
 							"primaryKey": true
 						},
@@ -2442,7 +2442,7 @@
 								"$ref": "AAAAAAF4Td0oAZnZdYI="
 							},
 							"name": "Mã chi tiết thẻ TV",
-							"type": "NVARCHAR",
+							"type": "INT",
 							"length": 0,
 							"foreignKey": true
 						},
@@ -2575,7 +2575,7 @@
 								"$ref": "AAAAAAF4XluQd7bBQ1M="
 							},
 							"name": "Mã chi tiết thẻ TV",
-							"type": "NVARCHAR",
+							"type": "INT",
 							"length": 0,
 							"primaryKey": true
 						},
