@@ -2,67 +2,42 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
     <title>Thiết kế layout</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: arial
-        }
-
-        /* Định dạng header */
-        .header {
-            background-color: #fdfdfd;
-            
-            padding: 10px;
-            text-align: center;
-        }
-
-        /* Định dạng thanh điều hướng trên cùng */
-        .menu {
-            overflow: hidden;
-            background-color: #000000;
-        }
-
-        /* Định dạng link điều hướng */
-        .menu a {
-            float: left;
-            display: block;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        /* Thay đổi màu liên kết khi di chuột qua */
-        .menu a:hover {
-            background-color: #dfdfdf;
-            color: black;
-            font-weight: bold
-        }
-    </style>
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-
+<!-- ================ header + menu ================ -->
     <div class="header">
-        <h1>Đây là cái logo của trường</h1>
+        <img src="./img/logoHuflit.png" alt="logoHuflit">        
+    </div>
+    <div class="menu">
+        <a href="#">Yêu cầu mở thẻ</a>
+        <a href="#">Quản lý thẻ thư viện</a>
+        <a href="#">Quản lý mượn - trả</a>
+        <a href="#">Quản lý sách thư viện</a>
+        <a href="#">Báo cáo</a>
+        <div class="nameAdmin">
+            <a href="#">Đây sẽ hiện tên Admin sau khi login</a>
+        </div>
     </div>
 
-    <div class="menu">
-        <a href="#">Trang Chủ</a>
-        <a href="#">Dịch vụ</a>
-        <a href="#">Liên hệ</a>
-        <a href="#">Tra cứu</a>
-    </div>
+<!-- ================ body==================== -->
+<div class="view-body">
+    
+</div>
+    
+
 
 </body>
 <footer>
     <p></p>
 </footer>
+
 </html>

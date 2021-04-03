@@ -4,11 +4,64 @@ html{
 }
 *{
     box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
 
 }
 body{
     background-color: #e5eaf5;
 }
+
+
+/*===========================TRANG CHÍNH CỦA ADMIN ========*/
+/*=========================== Header ======================*/
+.header > img{
+    width: 30%;
+    margin-left: 15px;
+}
+
+
+
+/*================== ĐỊNH DẠNG THANH MENU ===================*/
+
+/* Định dạng thanh điều hướng trên cùng */
+.menu {
+    width: 100%;
+    overflow: hidden;
+    background-color: #121212;
+    
+}
+
+/* Định dạng link điều hướng */
+.menu a {
+    float: left;
+    display: block;
+    color: #d4d4d4;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    border-right: 2px solid #d4d4d4;
+    
+    
+}
+
+/* Thay đổi màu liên kết khi di chuột qua */
+.menu a:hover {
+    background-color: #dfdfdf;
+    color: black;
+    font-weight: bold
+}
+/*===========================================================*/
+
+
+
+
+
+
+
+/* =========== TRANG LOGIN ========= */
+/*============================================*/
 
 .login{
     width: 400px;
