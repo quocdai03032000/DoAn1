@@ -1,0 +1,95 @@
+.ct_DaNang {
+    width: 1200px;
+}
+
+.titeltex {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: rgb(219, 219, 216);
+}
+
+.titeltex p {
+    padding: 10px;
+}
+
+
+/*hình grid khách sạn*/
+
+.img-itemin img {
+    height: 170px;
+    width: 140px;
+    background-size: cover;
+}
+
+.content-itemin-main {
+    padding-top: 10px;
+    padding-left: 10px;
+    position: relative;
+}
+
+.content-itemin h5 {
+    color: rgb(77, 132, 252);
+}
+
+.content-itemin-main-star p {
+    border: 1px solid rgb(81, 199, 253);
+    border-radius: 8px;
+    width: 90px;
+    text-align: center;
+    color: rgb(29, 197, 248);
+    float: left;
+}
+
+.content-itemin-main-star span {
+    margin-left: 15px;
+    border: none;
+    float: left;
+}
+
+.input-group-prepend p {
+    width: auto;
+    font-size: 15px;
+    overflow: hidden;
+    border: none;
+    padding-top: 1px;
+    opacity: 0.7;
+}
+
+.icon-maps {
+    height: 20px;
+    width: 20px;
+    background-size: cover;
+    padding-top: 5px;
+}
+
+.icon-bird {
+    height: 20px;
+    width: 20px;
+    background-size: cover;
+    padding-top: 5px;
+}
+
+#textblue {
+    color: rgb(2, 186, 241);
+    float: left;
+}
+
+.content-itemin-DiaChi {
+    margin-top: 1px;
+}
+
+.XemGia {
+    position: absolute;
+    top: 130px;
+    right: 10px;
+    width: 130px;
+    height: 36px;
+    /* border: 3px solid #73AD21; */
+    background-color: rgb(49, 144, 253);
+    color: white;
+    border-radius: 10px;
+}
+
+.XemGia:hover {
+    opacity: 0.6;
+}
