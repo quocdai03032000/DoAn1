@@ -3,7 +3,7 @@ import Maps from './Search_Maps';
 
 class Search extends Component {
     render() {
-        return ( <
+        return (zz
             div className = "container-small" >
             <
             nav className = "navbar navbar-light bg-light" >
@@ -11,15 +11,15 @@ class Search extends Component {
             a className = "navbar-brand"
             href = "#" >
             <
-            img src = "#"
+            img src = ""
             width = { 30 }
             height = { 30 }
             className = "d-inline-block align-top"
             alt = "" / >
             Khách Sạn xem gần đây!
             <
-            /a>   <
-            /nav>   <
+            /a> <
+            /nav> <
             Maps / >
             <
             /div>

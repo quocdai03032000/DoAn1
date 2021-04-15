@@ -4,7 +4,7 @@ class Voucher extends Component {
     render() {
         return ( 
             <div className = "Voucher" >
-               <h1 > Voucher </h1>  
+              <h1 > Voucher </h1> 
             </div>
         );
     }

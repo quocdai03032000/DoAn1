@@ -1,17 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
-import DaNang from './DaNang/DaNang';
 
-ReactDOM.render( <
-    React.StrictMode >
-    <
-    DaNang / >
-    <
-    /React.StrictMode>,
-    document.getElementById('root')
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
