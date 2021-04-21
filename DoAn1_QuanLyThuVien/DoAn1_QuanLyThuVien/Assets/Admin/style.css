@@ -163,7 +163,16 @@ body{
     margin: 0 auto;    
 }
 
-.
+.table_DauSach > tr >th{
+    font-size:15px;
+    color:aqua;
+}
+.header_search{
+    display:block;
+    width:30%;
+    margin:0 auto;
+    margin-bottom:50px;
+}
 
 
 

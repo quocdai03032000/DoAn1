@@ -51,9 +51,21 @@ namespace DoAn1_QuanLyThuVien.Areas.ADMIN.Controllers
             return View();
         }
 
-        public ActionResult DauSach()
+
+        /******** Đầu sách ************/
+        public ActionResult DauSach(string _name)
         {
-            return View(database.DauSaches.ToList());
+            if (_name == null)
+                return View(database.DauSaches.ToList());
+            else
+                return View(database.DauSaches.Where(s => s.TenSach.Contains(_name)).ToList());           
         }
+
+        /* Xem chi tiết đầu sách */
+        public ActionResult DauSach_ViewDetail(int id)
+        {
+            return View(database.DauSaches.Where(a=>a.MaDauSach == id).FirstOrDefault());
+        }
+        
     }
 }

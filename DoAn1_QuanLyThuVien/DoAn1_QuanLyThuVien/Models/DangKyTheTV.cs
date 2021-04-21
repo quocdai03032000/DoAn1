@@ -11,7 +11,10 @@ namespace DoAn1_QuanLyThuVien.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class DangKyTheTV
     {
         public int MaDangKyThe { get; set; }
@@ -19,5 +22,9 @@ namespace DoAn1_QuanLyThuVien.Models
         public string Password { get; set; }
         public string HoTen { get; set; }
         public Nullable<System.DateTime> NgayLam { get; set; }
+
+        [NotMapped]
+        [Compare("Password")]
+        public string ConfirmPass { get; set; }
     }
 }

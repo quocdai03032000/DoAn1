@@ -237,7 +237,7 @@
     <Content Include="Areas\USER\Views\Shared\_Layout_User_1.cshtml" />
     <Content Include="Areas\USER\Views\Shared\_Layout_User_2.cshtml" />
     <Content Include="Areas\USER\Views\Main\Index.cshtml" />
-    <Content Include="Areas\USER\Views\Main\Register.cshtml" />
+    <Content Include="Areas\USER\Views\Main\Register1.cshtml" />
     <Content Include="Areas\USER\Views\Main\Contact.cshtml" />
     <Content Include="Areas\USER\Views\Main\Login.cshtml" />
     <Content Include="Areas\ADMIN\Views\Shared\_Layout.cshtml" />
@@ -251,6 +251,8 @@
     <Content Include="Areas\ADMIN\Views\Main\Index.cshtml" />
     <Content Include="Areas\ADMIN\Views\Main\Main.cshtml" />
     <Content Include="Areas\ADMIN\Views\Main\DauSach.cshtml" />
+    <Content Include="Areas\USER\Views\Main\Register.cshtml" />
+    <Content Include="Areas\ADMIN\Views\Main\DauSach_ViewDetail.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

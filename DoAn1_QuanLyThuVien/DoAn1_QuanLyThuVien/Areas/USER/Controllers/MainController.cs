@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DoAn1_QuanLyThuVien.Models;
 
 namespace DoAn1_QuanLyThuVien.Areas.USER.Controllers
 {
     public class MainController : Controller
     {
+        QuanLyThuVienEntities database = new QuanLyThuVienEntities();
         // GET: USER/Main
         public ActionResult Index()
         {
@@ -32,6 +34,14 @@ namespace DoAn1_QuanLyThuVien.Areas.USER.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Register(DangKyTheTV user)
+        {
+            user.NgayLam = DateTime.Now;
+            database.DangKyTheTVs.Add(user);
+            database.SaveChanges();
+            return RedirectToAction("Index");
+        }
         /*****************/
         /***** Contact ***/
         /*****************/
