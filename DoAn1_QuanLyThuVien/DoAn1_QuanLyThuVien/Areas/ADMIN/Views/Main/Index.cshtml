@@ -1,8 +1,9 @@
 ﻿@model DoAn1_QuanLyThuVien.Models.Account_Admin
 
 @{
-    ViewBag.Title = "Index"; 
-    }
+    Layout = null;
+    ViewBag.Title = "Index";
+}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +20,6 @@
     <title>Login</title>
 
 </head>
-
 <body>
     @using (Html.BeginForm("Index", "Main", FormMethod.Post))
     {

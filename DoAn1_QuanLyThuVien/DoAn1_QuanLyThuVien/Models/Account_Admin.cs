@@ -11,11 +11,21 @@ namespace DoAn1_QuanLyThuVien.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class Account_Admin
     {
+        public bool checkpass;
         public int MaAccount { get; set; }
         public string User { get; set; }
         public string Password { get; set; }
+
+        [NotMapped]
+        [Compare("Password")]
+        public string ConfirmPass { get; set; }
+
+        [NotMapped]
+        public string OldPassword { get; set; }
     }
 }

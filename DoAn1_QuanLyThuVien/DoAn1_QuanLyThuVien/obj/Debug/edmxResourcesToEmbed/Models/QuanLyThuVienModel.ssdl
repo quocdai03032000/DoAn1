@@ -40,12 +40,13 @@
   </EntityType>
   <EntityType Name="Sach">
     <Key>
-      <PropertyRef Name="SoKiemSoat" />
+      <PropertyRef Name="id" />
     </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SoKiemSoat" Type="int" Nullable="false" />
     <Property Name="MaDauSach" Type="int" />
     <Property Name="MaTinhTrangSach" Type="int" />
-    <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
+    <Property Name="GhiChu" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="Sach_Dang_Muon">
     <Key>
@@ -97,7 +98,7 @@
     <End Role="DKyMuonSach" Type="Self.DKyMuonSach" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Sach">
-        <PropertyRef Name="SoKiemSoat" />
+        <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="DKyMuonSach">
         <PropertyRef Name="MaSach" />
@@ -121,7 +122,7 @@
     <End Role="Sach_Dang_Muon" Type="Self.Sach_Dang_Muon" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Sach">
-        <PropertyRef Name="SoKiemSoat" />
+        <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="Sach_Dang_Muon">
         <PropertyRef Name="MaSach" />
