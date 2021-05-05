@@ -46,6 +46,7 @@
     <EntitySetMapping Name="Saches">
       <EntityTypeMapping TypeName="QuanLyThuVienModel.Sach">
         <MappingFragment StoreEntitySet="Sach">
+          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="SoKiemSoat" ColumnName="SoKiemSoat" />
           <ScalarProperty Name="MaDauSach" ColumnName="MaDauSach" />
           <ScalarProperty Name="MaTinhTrangSach" ColumnName="MaTinhTrangSach" />

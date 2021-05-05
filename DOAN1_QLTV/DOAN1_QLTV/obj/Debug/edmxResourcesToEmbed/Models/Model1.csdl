@@ -23,12 +23,12 @@
       <PropertyRef Name="MaDauSach" />
     </Key>
     <Property Name="MaDauSach" Type="Int32" Nullable="false" />
-    <Property Name="TenSach" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TenSach" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="TacGia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="TheLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="NamXuatBan" Type="DateTime" Precision="3" />
+    <Property Name="NamXuatBan" Type="Int32" />
     <Property Name="NhaXuatBan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="HinhAnh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HinhAnh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Saches" Relationship="Self.FK_Sach_DauSach" FromRole="DauSach" ToRole="Sach" />
   </EntityType>
   <EntityType Name="DKyMuonSach">
@@ -43,12 +43,13 @@
   </EntityType>
   <EntityType Name="Sach">
     <Key>
-      <PropertyRef Name="SoKiemSoat" />
+      <PropertyRef Name="id" />
     </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="SoKiemSoat" Type="Int32" Nullable="false" />
     <Property Name="MaDauSach" Type="Int32" />
     <Property Name="MaTinhTrangSach" Type="Int32" />
-    <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="DauSach" Relationship="Self.FK_Sach_DauSach" FromRole="Sach" ToRole="DauSach" />
     <NavigationProperty Name="DKyMuonSaches" Relationship="Self.FK_DKyMuonSach_Sach" FromRole="Sach" ToRole="DKyMuonSach" />
     <NavigationProperty Name="Sach_Dang_Muon" Relationship="Self.FK_Sach_Dang_Muon_Sach" FromRole="Sach" ToRole="Sach_Dang_Muon" />
@@ -113,7 +114,7 @@
     <End Role="DKyMuonSach" Type="Self.DKyMuonSach" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Sach">
-        <PropertyRef Name="SoKiemSoat" />
+        <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="DKyMuonSach">
         <PropertyRef Name="MaSach" />
@@ -137,7 +138,7 @@
     <End Role="Sach_Dang_Muon" Type="Self.Sach_Dang_Muon" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Sach">
-        <PropertyRef Name="SoKiemSoat" />
+        <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="Sach_Dang_Muon">
         <PropertyRef Name="MaSach" />

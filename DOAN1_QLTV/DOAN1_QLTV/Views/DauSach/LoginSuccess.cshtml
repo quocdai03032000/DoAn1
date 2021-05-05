@@ -86,7 +86,7 @@
                         <p>@Html.DisplayFor(model => item.TenSach)</p>
                         <p>@Html.DisplayFor(model => item.TacGia)</p>
                         <p>@Html.DisplayFor(model => item.TheLoai)</p>
-                        <p><input type="submit" value="Buy" /></p>
+                        <p><button>@Html.ActionLink("Thuê","Details",new { id=item.MaDauSach })</button></p>
                     </div>
                 </div>
             }

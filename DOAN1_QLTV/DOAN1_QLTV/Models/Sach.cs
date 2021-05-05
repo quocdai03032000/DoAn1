@@ -21,6 +21,7 @@ namespace DOAN1_QLTV.Models
             this.Sach_Dang_Muon = new HashSet<Sach_Dang_Muon>();
         }
     
+        public int id { get; set; }
         public int SoKiemSoat { get; set; }
         public Nullable<int> MaDauSach { get; set; }
         public Nullable<int> MaTinhTrangSach { get; set; }

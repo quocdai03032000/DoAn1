@@ -23,9 +23,9 @@ namespace DOAN1_QLTV.Models
             this.DKyMuonSaches = new HashSet<DKyMuonSach>();
             this.Sach_Dang_Muon = new HashSet<Sach_Dang_Muon>();
         }
-        
+
         [DisplayName("ID")]
-/*        [Required(ErrorMessage ="Không được bỏ trống!")]*/
+        /*        [Required(ErrorMessage ="Không được bỏ trống!")]*/
         public string MaThe { get; set; }
 
         [DisplayName("Status")]
@@ -57,6 +57,7 @@ namespace DOAN1_QLTV.Models
 
         /*        public bool Remember { get; set; }*/
         public string RePassword { get; set; }
+
         public string GhiChu { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
