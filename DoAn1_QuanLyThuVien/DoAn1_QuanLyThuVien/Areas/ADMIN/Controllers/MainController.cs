@@ -131,22 +131,34 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
             else
                 return RedirectToAction("Index", "Main");
         }
-
+        /*----- Thêm Sách -----*/
         public ActionResult ThemSach(int id)
         {
             ViewBag.Id_dauSach = id.ToString();
-            return View(/*database.DauSaches.Where(a => a.MaDauSach == id).FirstOrDefault()*/);
+            return View();
         }
         [HttpPost]
         public ActionResult ThemSach(int id,string sks)
         {
-            var a = new Sach();
-            a.MaDauSach = id;
-            a.MaTinhTrangSach = 1;
-            a.SoKiemSoat = int.Parse(sks);
-            database.Saches.Add(a);
-            database.SaveChanges();
-            return RedirectToAction("DauSach", "Main");
+            int soKiemSoat = int.Parse(sks);
+            var check = database.Saches.Where(a => a.MaDauSach == id && a.SoKiemSoat == soKiemSoat).SingleOrDefault();
+            if(check==null)
+            {
+                var a = new Sach();
+                a.MaDauSach = id;
+                a.MaTinhTrangSach = 1;
+                a.SoKiemSoat = soKiemSoat;
+                database.Saches.Add(a);
+                database.SaveChanges();
+                ViewBag.ThemSach_message_suss = "Thêm thành công!";
+                return RedirectToAction("DauSach", "Main");
+            }
+            else
+            {
+                ViewBag.ThemSach_message_error = "Trùng số kiểm soát, hãy nhập lại!";
+                return View("ThemSach");
+            }
+           
         }
 
         /*----- Thẻ TV -----*/
