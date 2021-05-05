@@ -20,6 +20,7 @@
 <body>
     @using (Html.BeginForm("DauSach", "Main"))
     {
+        @ViewBag.Error_XoaDauSach;
         <div class="Header_Dau_Sach">
             <div class="row align-items-center ">
                 <div class="col-md-4 ">
@@ -58,11 +59,11 @@
                             <td>@Html.DisplayFor(a => item.TacGia)</td>
                             <td>@Html.DisplayFor(a => item.TheLoai)</td>
                             <td>@Html.DisplayFor(a => item.NamXuatBan)</td>
-                            <td>10</td>
+                            <td>@Html.DisplayFor(a=>item.SoLuong)</td>
                             <td>@Html.DisplayFor(a => item.NhaXuatBan)</td>
                             <td class="table_DauSach_btn">                                
                                 <a href="@Url.Action("SuaDauSach","Main",new {id=item.MaDauSach })"><i class="fas fa-wrench"><!-- Sửa --></i></a>
-                                <a href="#"><i class="fas fa-trash-alt"><!-- Xoá --></i></a>
+                                <a href="@Url.Action("XoaDauSach","Main",new { id=item.MaDauSach})"><i class="fas fa-trash-alt"><!-- Xoá --></i></a>
                                 <a href="@Url.Action("ThemSach","Main",new { id=item.MaDauSach})">Thêm sách</a>
                             </td>
                         </tr>

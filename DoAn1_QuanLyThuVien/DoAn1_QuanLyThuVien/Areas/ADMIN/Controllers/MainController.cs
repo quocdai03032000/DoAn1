@@ -8,8 +8,8 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
 {
     public class MainController : Controller
     {
-        QuanLyThuVienEntities database = new QuanLyThuVienEntities();      
-       
+        QuanLyThuVienEntities database = new QuanLyThuVienEntities();
+
         /******** Login ************/
         public ActionResult Index()
         {
@@ -25,19 +25,19 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
                 return View("Index", ad);
             }
             else
-            {                
+            {
                 Session["User"] = ad.User;
-                return RedirectToAction("Main", "Main");                
+                return RedirectToAction("Main", "Main");
             }
         }
 
         /*----- Đăng xuất -----*/
 
         public ActionResult Logout(Account_Admin ad)
-        {            
+        {
             Session.Abandon();
             return RedirectToAction("Index", "Main");
-          
+
         }
 
         /*---- Đổi mật khẩu ----*/
@@ -52,7 +52,7 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
             //var check = database.Account_Admin.Where(s=>s.Password == _name && s.MaAccount==1).FirstOrDefault();            
             if (ad != null)
             {
-                if(_newPass==_nhapLaiPass)
+                if (_newPass == _nhapLaiPass)
                 {
                     ad.Password = _newPass;
                     database.Entry(ad).State = System.Data.Entity.EntityState.Modified;
@@ -62,7 +62,7 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
                 else
                 {
                     ViewBag.Error_ChangePass = "Mật khẩu không trùng khớp";
-                }                
+                }
                 return View("ChangePass", ad);
             }
             else
@@ -84,7 +84,7 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
             }
             else
                 return RedirectToAction("Index", "Main");
-                     
+
         }
 
         /* ---- Đầu sách -----*/
@@ -101,7 +101,7 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
             }
             else
                 return RedirectToAction("Index", "Main");
-            
+
         }
 
         public ActionResult ThemDauSach()
@@ -109,8 +109,8 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
             return View();
         }
         public ActionResult SuaDauSach(int id)
-        {
-            return View(database.DauSaches.Where(a=>a.MaDauSach==id).FirstOrDefault());
+        {           
+            return View(database.DauSaches.Where(a => a.MaDauSach == id).FirstOrDefault());
         }
         [HttpPost]
         public ActionResult SuaDauSach(int id, DauSach a)
@@ -119,6 +119,23 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
             database.SaveChanges();
             ViewBag.SuaDauSach_suss = "Sửa thành công !!!";
             return View("SuaDauSach", a);
+        }
+        [HttpGet]
+        public ActionResult XoaDauSach(int id)
+        {
+            var check = database.Saches.Where(a => a.MaDauSach == id).SingleOrDefault();
+            if(check==null)
+            {
+                var DauSach = database.DauSaches.Where(a => a.MaDauSach == id).SingleOrDefault();
+                database.DauSaches.Remove(DauSach);
+                database.SaveChanges();                
+            }
+            else
+            {
+                ViewBag.Error_XoaDauSach = "Không thể xoá vì còn tồn tại sách thuộc đầu sách này ";
+            }
+            return RedirectToAction("DauSach", "Main");
+
         }
 
         /*----- Sách -----*/
@@ -143,11 +160,11 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult ThemSach(int id,string sks)
+        public ActionResult ThemSach(int id, string sks)
         {
             int soKiemSoat = int.Parse(sks);
             var check = database.Saches.Where(a => a.MaDauSach == id && a.SoKiemSoat == soKiemSoat).SingleOrDefault();
-            if(check==null)
+            if (check == null)
             {
                 var a = new Sach();
                 a.MaDauSach = id;
@@ -163,7 +180,16 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
                 ViewBag.ThemSach_message_error = "Trùng số kiểm soát, hãy nhập lại!";
                 return View("ThemSach");
             }
-           
+
+        }
+        /*----- Xoá sách -----*/
+        [HttpGet]
+        public ActionResult XoaSach(int id)
+        {
+            var xoaSach = database.Saches.Where(a => a.id == id).SingleOrDefault();
+            database.Saches.Remove(xoaSach);
+            database.SaveChanges();
+            return RedirectToAction("Sach", "Main");
         }
 
         /*----- Thẻ TV -----*/
@@ -180,9 +206,31 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
             }
             else
                 return RedirectToAction("Index", "Main");
-            
+
         }
-        /*----- Đăng ký thẻ TV -----*/
+        /*----- block thẻ thư viện -----*/
+        [HttpGet]
+        public ActionResult BlockTheThuVien(string id)
+        {            
+            var theTV = database.TheThuViens.Where(a => a.MaThe == id).SingleOrDefault();
+            theTV.MaTinhTrang = 1;
+            database.Entry(theTV).State = System.Data.Entity.EntityState.Modified;
+            database.SaveChanges();
+            return RedirectToAction("DsTheThuVien", "Main");
+        }
+        /*----- Xoá thẻ thư viện -----*/
+        [HttpGet]
+        public ActionResult XoaTheThuVien(string id)
+        {            
+            var xoaTheTV = database.TheThuViens.Where(a => a.MaThe == id).SingleOrDefault();
+            database.TheThuViens.Remove(xoaTheTV);
+            database.SaveChanges();
+            return RedirectToAction("DsTheThuVien", "Main");
+        }
+        
+        
+        
+        /*----- Danh Sách đăng ký thẻ TV -----*/
         public ActionResult DsDangKyTheTV(string _name)
         {
             if (Session["User"] != null)
@@ -196,18 +244,42 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
             }
             else
                 return RedirectToAction("Index", "Main");
-            
+
         }
-        //[HttpPost]
-        //public ActionResult ThemTheTV(int id)
-        //{
-        //    var theTV = database.DangKyTheTVs.Where(a => a.MaDangKyThe == id).SingleOrDefault();
+        /*----- Thêm thẻ thư viện từ danh sách đăng ký thẻ -----*/
+        [HttpGet]
+        public ActionResult ThemTheTV_form_DS(int id)
+        {
+            //Thêm thẻ thư viện từ bảng đăng ký thẻ sang thẻ thư viện
+            var DangKyTheTV = database.DangKyTheTVs.Where(a => a.MaDangKyThe == id).SingleOrDefault();
+            var TheTV = new TheThuVien();
+            TheTV.MaThe = DangKyTheTV.MaThe;
+            TheTV.MaTinhTrang = 2;
+            TheTV.Password = DangKyTheTV.Password;
+            TheTV.HoTen = DangKyTheTV.HoTen;
+            TheTV.NgayLam = DangKyTheTV.NgayLam;
+            //lấy ra và ép kiểu datetime từ database
+            //DateTime NgayHetHan = DateTime.Parse(DangKyTheTV.NgayLam.ToString());
+            //TheTV.NgayHetHan = NgayHetHan.AddYears(4);
+            database.TheThuViens.Add(TheTV);
+            //Đồng thời xoá thẻ tv trong bảng đăng ký thẻ tv
+            database.DangKyTheTVs.Remove(DangKyTheTV);
+            database.SaveChanges();
+            return RedirectToAction("DsDangKyTheTV", "Main");
+        }
 
-        //}
+        /*----- Xoá thẻ thư viện từ danh sách đăng ký thẻ -----*/
+        [HttpGet]
+        public ActionResult XoaTheTV_form_DS(int id)
+        {
+            var DangKyTheTV = database.DangKyTheTVs.Where(a => a.MaDangKyThe == id).SingleOrDefault();
+            database.DangKyTheTVs.Remove(DangKyTheTV);
+            database.SaveChanges();
+            return RedirectToAction("DsDangKyTheTV", "Main");
+        }
 
-       
 
 
-      
+
     }
 }

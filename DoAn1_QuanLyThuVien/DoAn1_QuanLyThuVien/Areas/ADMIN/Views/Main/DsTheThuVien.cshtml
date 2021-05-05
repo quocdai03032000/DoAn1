@@ -45,11 +45,11 @@
                             <td class="table_DauSach_status"><i class="fas fa-circle icon_status"></i> @Html.DisplayFor(a => item.TinhTrang_TheTV.TenTinhTrang)</td>
                             <td>@Html.DisplayFor(a => item.NgayLam)</td>
                             <td>@Html.DisplayFor(a => item.NgayHetHan)</td>
-                            <td>Quá hạn 3 ngày chưa trả</td>
+                            <td>@Html.DisplayFor(a=>item.GhiChu)</td>
                             <td class="theTV-btn">
                                 <a class="fix" href="#"><i class="fas fa-wrench"></i></a>
-                                <a class="block" href="#"><i class="fas fa-lock"></i></a>
-                                <a class="del" href="#"><i class="fas fa-trash-alt"></i></a>
+                                <a class="block" href="@Url.Action("BlockTheThuVien","Main",new { id=item.MaThe})"><i class="fas fa-lock"></i></a>
+                                <a class="del" href="@Url.Action("XoaTheThuVien","Main",new {id=item.MaThe })"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     }

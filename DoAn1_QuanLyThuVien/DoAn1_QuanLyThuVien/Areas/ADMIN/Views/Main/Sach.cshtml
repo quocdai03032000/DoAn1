@@ -57,7 +57,7 @@
                             <td class="sach-GhiChu">@Html.DisplayFor(a=>item.GhiChu)</td>
                             <td class="table_DauSach_btn">
                                 <a href="#"><i class="fas fa-wrench"></i></a>
-                                <a href="#"><i class="fas fa-trash-alt"></i></a>
+                                <a href="@Url.Action("XoaSach","Main",new { id=item.id})"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     }
