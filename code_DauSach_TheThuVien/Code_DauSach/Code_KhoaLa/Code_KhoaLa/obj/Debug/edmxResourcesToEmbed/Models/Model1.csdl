@@ -191,7 +191,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="QuanLyThuVienEntities3" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="QuanLyThuVienEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Account_Admin" EntityType="Self.Account_Admin" />
     <EntitySet Name="DangKyTheTVs" EntityType="Self.DangKyTheTV" />
     <EntitySet Name="DauSaches" EntityType="Self.DauSach" />

@@ -9,11 +9,11 @@ namespace Code_KhoaLa.Controllers
 {
     public class TheThuVienController : Controller
     {
-        QuanLyThuVienEntities3 qltv = new QuanLyThuVienEntities3();
+        QuanLyThuVienEntities ql = new QuanLyThuVienEntities();
         // GET: TheThuVien
         public ActionResult Index()
         {
-            return View(qltv.TheThuViens.ToList());
+            return View(ql.TheThuViens.ToList());
         }
 
         public ActionResult Create()
@@ -22,49 +22,66 @@ namespace Code_KhoaLa.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(TheThuVien sach)
+        public ActionResult Create(TheThuVien the)
         {
-            //try
-            //{
-                qltv.TheThuViens.Add(sach);
-                qltv.SaveChanges();
+
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    foreach (var item in ql.TheThuViens)
+                    {
+                        if (item.MaThe == the.MaThe)
+                        {
+                            return Content("<script language='javascript' type='text/javascript'>alert     ('Dữ Liệu đã tồn tại');</script>");
+                            //return Content("Id bị trun");
+                        }
+                        else
+                        {
+                            ql.TheThuViens.Add(the);
+                            ql.SaveChanges();
+                            return Content("<script language='javascript' type='text/javascript'>alert     ('Thanh Công! ');</script>");
+                        }
+                    }
+                }
+
                 return RedirectToAction("Index");
-            //}
-            //catch
-            //{
-            //    return Content("Thêm Không Thành Công!! Vui Lòng Kiểm Tra Lại");
-            //}
+            }
+            catch
+            {
+                return Content("Thêm Không Thành Công!! Vui Lòng Kiểm Tra Lại");
+            }
         }
 
         public ActionResult Details(String id)
         {
-            return View(qltv.TheThuViens.Where(s => s.MaThe == id).FirstOrDefault());
+            return View(ql.TheThuViens.Where(s => s.MaThe == id).FirstOrDefault());
         }
 
         public ActionResult Edit(String id)
         {
-            return View(qltv.TheThuViens.Where(s => s.MaThe == id).FirstOrDefault());
+            return View(ql.TheThuViens.Where(s => s.MaThe == id).FirstOrDefault());
         }
         [HttpPost]
         public ActionResult Edit(String id, TheThuVien the)
         {
-            qltv.Entry(the).State = System.Data.Entity.EntityState.Modified;
-            qltv.SaveChanges();
+            ql.Entry(the).State = System.Data.Entity.EntityState.Modified;
+            ql.SaveChanges();
             return RedirectToAction("Index");
         }
 
         public ActionResult Delete(string id)
         {
-            return View(qltv.TheThuViens.Where(s => s.MaThe == id).FirstOrDefault());
+            return View(ql.TheThuViens.Where(s => s.MaThe == id).FirstOrDefault());
         }
         [HttpPost]
         public ActionResult Delete(string id, TheThuVien the)
         {
             try
             {
-                the = qltv.TheThuViens.Where(s => s.MaThe == id).FirstOrDefault();
-                qltv.TheThuViens.Remove(the);
-                qltv.SaveChanges();
+                the = ql.TheThuViens.Where(s => s.MaThe == id).FirstOrDefault();
+                ql.TheThuViens.Remove(the);
+                ql.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch

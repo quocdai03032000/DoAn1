@@ -418,7 +418,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QuanLyThuVienEntities3" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="QuanLyThuVienEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Account_Admin" EntityType="Self.Account_Admin" />
           <EntitySet Name="DangKyTheTVs" EntityType="Self.DangKyTheTV" />
           <EntitySet Name="DauSaches" EntityType="Self.DauSach" />
@@ -463,7 +463,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QuanLyThuVienModelStoreContainer" CdmEntityContainer="QuanLyThuVienEntities3">
+        <EntityContainerMapping StorageEntityContainer="QuanLyThuVienModelStoreContainer" CdmEntityContainer="QuanLyThuVienEntities">
           <EntitySetMapping Name="Account_Admin">
             <EntityTypeMapping TypeName="QuanLyThuVienModel.Account_Admin">
               <MappingFragment StoreEntitySet="Account_Admin">

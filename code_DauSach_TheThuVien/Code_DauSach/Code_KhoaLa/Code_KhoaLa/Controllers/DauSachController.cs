@@ -12,10 +12,11 @@ namespace Code_KhoaLa.Controllers
 {
     public class DauSachController : Controller
     {
-        QuanLyThuVienEntities3 ql = new QuanLyThuVienEntities3();
+        QuanLyThuVienEntities ql = new QuanLyThuVienEntities();
         // GET: DauSach
         public ActionResult Index()
         {
+   
             return View(ql.DauSaches.ToList());
         }
 
@@ -25,27 +26,42 @@ namespace Code_KhoaLa.Controllers
             return View(ds);
         }
         [HttpPost]
-        public ActionResult Create(DauSach sach)
+        public ActionResult Create(DauSach sach,string MaDauSach)
         {
-            try
+
+            if (sach.imageUploader != null)
             {
-                if (sach.imageUploader != null)
+                string fileName = Path.GetFileNameWithoutExtension(sach.imageUploader.FileName);
+                string extension = Path.GetExtension(sach.imageUploader.FileName);
+                fileName = fileName + extension;
+                sach.HinhAnh = "~/Content/imgsach/" + fileName;
+                sach.imageUploader.SaveAs(Path.Combine(Server.MapPath("~/Content/imgsach/"), fileName));
+                if (ModelState.IsValid)
                 {
-                    string fileName = Path.GetFileNameWithoutExtension(sach.imageUploader.FileName);
-                    string extension = Path.GetExtension(sach.imageUploader.FileName);
-                    fileName = fileName + extension;
-                    sach.HinhAnh = "~/Content/imgsach/" + fileName;
-                    sach.imageUploader.SaveAs(Path.Combine(Server.MapPath("~/Content/imgsach/"), fileName));
+                    int maDauSach = int.Parse(MaDauSach);
+                    var check = ql.DauSaches.Where(a => a.MaDauSach == maDauSach).SingleOrDefault();
+                    
+                    if (check==null)
+                    {
+                        ql.DauSaches.Add(sach);
+                        ql.SaveChanges();
+                       
+                        return RedirectToAction("Index");
+                        
+                    }
+                    else
+                    {
+                        //ModelState.AddModelError("", "ID bi trung");
+                        //ViewBag.err = "Trung ma ...";
+                        return Content("<script>alert('abc')</script>");
+                        //return RedirectToAction("Index");
+                    }
                 }
-                ql.DauSaches.Add(sach);
-                ql.SaveChanges();
-                return RedirectToAction("Index");
             }
-            catch
-            {
-                return Content("Thêm Không Thành Công!! Vui Lòng Kiểm Tra Lại");
-            }
+            return RedirectToAction("Index");
         }
+
+ 
 
         public ActionResult Details(int id)
         {
@@ -53,18 +69,30 @@ namespace Code_KhoaLa.Controllers
         }
 
         public ActionResult Edit(int id)
-        {   
-            return View(ql.DauSaches.Single(s =>s.MaDauSach == id));
-        }
-        [HttpPost]
-        public ActionResult Edit(int id, DauSach sach)
         {
-            ql.Entry(sach).State = System.Data.Entity.EntityState.Modified;
-            ql.SaveChanges();
-            return RedirectToAction("Index");
+            var std = ql.DauSaches.Where(s => s.MaDauSach == id)
+                               .FirstOrDefault();
+
+            return View(std);
+          //  return View(ql.DauSaches.Single(s => s.MaDauSach == id));
+        }
+        [HttpPost]  
+        public ActionResult Edit( DauSach sach)
+        {
+            if (ModelState.IsValid)
+            {
+
+                //write code to update student 
+
+                ql.Entry(sach).State = System.Data.Entity.EntityState.Modified;
+                ql.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(sach);
         }
 
-        public ActionResult Delete (int id)
+        public ActionResult Delete(int id)
         {
             return View(ql.DauSaches.Where(s => s.MaDauSach == id).FirstOrDefault());
         }
