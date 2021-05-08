@@ -34,6 +34,7 @@
           <Property Name="NamXuatBan" Type="int" />
           <Property Name="NhaXuatBan" Type="nvarchar" MaxLength="50" />
           <Property Name="HinhAnh" Type="nvarchar(max)" />
+          <Property Name="SoLuong" Type="int" />
         </EntityType>
         <EntityType Name="DKyMuonSach">
           <Key>
@@ -256,6 +257,7 @@
           <Property Name="NamXuatBan" Type="Int32" />
           <Property Name="NhaXuatBan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="HinhAnh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SoLuong" Type="Int32" />
           <NavigationProperty Name="Saches" Relationship="Self.FK_Sach_DauSach" FromRole="DauSach" ToRole="Sach" />
         </EntityType>
         <EntityType Name="DKyMuonSach">
@@ -494,6 +496,7 @@
                 <ScalarProperty Name="NamXuatBan" ColumnName="NamXuatBan" />
                 <ScalarProperty Name="NhaXuatBan" ColumnName="NhaXuatBan" />
                 <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

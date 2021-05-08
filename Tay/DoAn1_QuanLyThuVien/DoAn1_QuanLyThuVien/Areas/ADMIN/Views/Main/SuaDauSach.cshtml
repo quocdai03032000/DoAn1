@@ -20,7 +20,7 @@
             </div>
         </div>
     </div>
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("SuaDauSach","Main"))
     {
         <div class="login_register">
             <div class="changePass">
@@ -34,6 +34,10 @@
                 <div class="ThemDauSach-field ">
                     <i class="fas fa-book"></i>                   
                     @Html.TextBoxFor(model => model.TenSach, new { @class = "ThemDauSach-input" })
+                </div>
+                <div class="ThemDauSach-field ">
+                    <i class="fas fa-book"></i>
+                    @Html.TextBoxFor(model => model.SoLuong, new { @class = "ThemDauSach-input" })
                 </div>
                 <p class="title-SuaDauSach">*Tên tác giả</p> 
                 <div class="ThemDauSach-field ">

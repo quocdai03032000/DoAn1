@@ -163,6 +163,7 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
         public ActionResult ThemSach(int id, string sks)
         {
             int soKiemSoat = int.Parse(sks);
+            var DauSach = database.DauSaches.Where(a => a.MaDauSach == id).SingleOrDefault();
             var check = database.Saches.Where(a => a.MaDauSach == id && a.SoKiemSoat == soKiemSoat).SingleOrDefault();
             if (check == null)
             {
@@ -170,6 +171,8 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
                 a.MaDauSach = id;
                 a.MaTinhTrangSach = 1;
                 a.SoKiemSoat = soKiemSoat;
+                /*----- Cap nhat so luong -----*/
+                DauSach.SoLuong += 1;
                 database.Saches.Add(a);
                 database.SaveChanges();
                 ViewBag.ThemSach_message_suss = "Thêm thành công!";
@@ -187,6 +190,9 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
         public ActionResult XoaSach(int id)
         {
             var xoaSach = database.Saches.Where(a => a.id == id).SingleOrDefault();
+            var dauSach = database.DauSaches.Where(a => a.MaDauSach == xoaSach.MaDauSach).SingleOrDefault();
+            /*----- Cap nhat so luon dau sach ----- */
+            dauSach.SoLuong -= 1;
             database.Saches.Remove(xoaSach);
             database.SaveChanges();
             return RedirectToAction("Sach", "Main");

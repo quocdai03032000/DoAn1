@@ -31,6 +31,7 @@
           <ScalarProperty Name="NamXuatBan" ColumnName="NamXuatBan" />
           <ScalarProperty Name="NhaXuatBan" ColumnName="NhaXuatBan" />
           <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

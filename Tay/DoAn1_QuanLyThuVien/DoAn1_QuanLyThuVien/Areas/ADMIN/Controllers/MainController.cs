@@ -110,7 +110,7 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
             DauSach ds = new DauSach();
             return View(ds);
         }
-        [HttpPost]
+        //[HttpPost]
         //public ActionResult ThemDauSach(DauSach sach)
         //{
         //    try
@@ -132,7 +132,7 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
         //        return Content("Thêm Không Thành Công!! Vui Lòng Kiểm Tra Lại");
         //    }
         //}
-
+       
         public ActionResult SuaDauSach(int id)
         {           
             return View(database.DauSaches.Where(a => a.MaDauSach == id).FirstOrDefault());

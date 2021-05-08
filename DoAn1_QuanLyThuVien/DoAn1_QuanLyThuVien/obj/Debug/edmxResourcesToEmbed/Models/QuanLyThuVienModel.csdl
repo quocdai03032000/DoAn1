@@ -29,6 +29,7 @@
     <Property Name="NamXuatBan" Type="Int32" />
     <Property Name="NhaXuatBan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="HinhAnh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuong" Type="Int32" />
     <NavigationProperty Name="Saches" Relationship="Self.FK_Sach_DauSach" FromRole="DauSach" ToRole="Sach" />
   </EntityType>
   <EntityType Name="DKyMuonSach">
