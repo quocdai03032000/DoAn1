@@ -324,8 +324,8 @@ C:\Users\Admin\OneDrive\Máy tính\CODE\Code_DauSach\Code_KhoaLa\Code_KhoaLa\bin
 C:\Users\Admin\OneDrive\Máy tính\CODE\Code_DauSach\Code_KhoaLa\Code_KhoaLa\bin\Newtonsoft.Json.xml
 C:\Users\Admin\OneDrive\Máy tính\CODE\Code_DauSach\Code_KhoaLa\Code_KhoaLa\bin\Antlr3.Runtime.pdb
 C:\Users\Admin\OneDrive\Máy tính\CODE\Code_DauSach\Code_KhoaLa\Code_KhoaLa\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Admin\OneDrive\Máy tính\CODE\Code_DauSach\Code_KhoaLa\Code_KhoaLa\obj\Debug\Code_KhoaLa.csprojAssemblyReference.cache
 C:\Users\Admin\OneDrive\Máy tính\CODE\Code_DauSach\Code_KhoaLa\Code_KhoaLa\obj\Debug\Code_KhoaLa.csproj.CoreCompileInputs.cache
 C:\Users\Admin\OneDrive\Máy tính\CODE\Code_DauSach\Code_KhoaLa\Code_KhoaLa\obj\Debug\Code_KhoaLa.csproj.CopyComplete
 C:\Users\Admin\OneDrive\Máy tính\CODE\Code_DauSach\Code_KhoaLa\Code_KhoaLa\obj\Debug\Code_KhoaLa.dll
 C:\Users\Admin\OneDrive\Máy tính\CODE\Code_DauSach\Code_KhoaLa\Code_KhoaLa\obj\Debug\Code_KhoaLa.pdb
+C:\Users\Admin\OneDrive\Máy tính\CODE\Code_DauSach\Code_KhoaLa\Code_KhoaLa\obj\Debug\Code_KhoaLa.csprojAssemblyReference.cache

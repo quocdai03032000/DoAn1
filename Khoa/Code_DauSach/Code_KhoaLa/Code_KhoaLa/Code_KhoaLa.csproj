@@ -188,9 +188,6 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\CSSLA.css" />
-    <Content Include="Content\imgsach\1.jpg" />
-    <Content Include="Content\imgsach\13.jpg" />
-    <Content Include="Content\imgsach\4.jpg" />
     <Content Include="Content\imgsach\add.png" />
     <Content Include="Content\img\bg.jpg" />
     <Content Include="Content\img\book-icon.png" />

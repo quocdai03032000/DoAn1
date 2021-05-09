@@ -25,7 +25,7 @@ namespace Code_KhoaLa.Models
             HinhAnh = "~/Content/imgsach/add.png";
         }
         [DisplayName("Mã Đầu Sách:")]
-        [Required(ErrorMessage = "Vui Lòng nhập Mã sách!")]
+        [Required]
         public int MaDauSach { get; set; }
 
         [DisplayName("Tên Sách:")]
