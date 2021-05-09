@@ -211,6 +211,31 @@
     <Content Include="Assets\img\logoHuflit.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\imgsach\1.jpg" />
+    <Content Include="Content\imgsach\13.jpg" />
+    <Content Include="Content\imgsach\16.png" />
+    <Content Include="Content\imgsach\18.jpg" />
+    <Content Include="Content\imgsach\2.png" />
+    <Content Include="Content\imgsach\3.jpg" />
+    <Content Include="Content\imgsach\38.jpg" />
+    <Content Include="Content\imgsach\4.jpg" />
+    <Content Include="Content\imgsach\48.jpg" />
+    <Content Include="Content\imgsach\5.jpg" />
+    <Content Include="Content\imgsach\6.jpg" />
+    <Content Include="Content\imgsach\7.jpg" />
+    <Content Include="Content\imgsach\add.png" />
+    <Content Include="Content\imgsach\temple.jpg" />
+    <Content Include="Content\img\bg.jpg" />
+    <Content Include="Content\img\book-icon.png" />
+    <Content Include="Content\img\c3803e4814e94502bff9bd0c728c8d8f.png" />
+    <Content Include="Content\img\Free_Sample_By_Wix %281%29.jfif" />
+    <Content Include="Content\img\HUFLIT_logo %281%29.png" />
+    <Content Include="Content\img\logoHuflit%40.png" />
+    <Content Include="Content\img\logoHuflit.png" />
+    <Content Include="Content\img\pexels-stanislav-kondratiev-2908984.jpg" />
+    <Content Include="Content\img\search.png" />
+    <Content Include="Content\img\star-yellow.png" />
+    <Content Include="Content\img\star.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -251,6 +276,7 @@
       <DependentUpon>QuanLyThuVienModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\IMG_scripts.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

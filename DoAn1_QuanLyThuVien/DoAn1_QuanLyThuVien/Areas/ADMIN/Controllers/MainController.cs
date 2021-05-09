@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DoAn1_QuanLyThuVien.Models;
+using System.IO;
+
 namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
 {
     public class MainController : Controller
@@ -106,8 +108,63 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
 
         public ActionResult ThemDauSach()
         {
-            return View();
+            DauSach ds = new DauSach();
+            return View(ds);
         }
+        [HttpPost]
+        public ActionResult ThemDauSach(string MaDauSach, DauSach sach)
+        {
+            //int maDauSach = int.Parse(MaDauSach);
+            //var check = database.DauSaches.Where(a => a.MaDauSach == maDauSach).SingleOrDefault();
+
+            //if (check == null)
+            //{
+            //    sach.SoLuong = 0;
+            //    database.DauSaches.Add(sach);
+            //    database.SaveChanges();
+            //    return RedirectToAction("DauSach", "Main");
+
+            //}
+            //else
+            //{
+            //    ModelState.AddModelError("", "Trùng Mã Đầu Sách");
+            //    return View(sach);
+            //}
+            try
+            {
+                if (sach.imageUploader != null)
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(sach.imageUploader.FileName);
+                    string extension = Path.GetExtension(sach.imageUploader.FileName);
+                    fileName = fileName + extension;
+                    sach.HinhAnh = "~/Content/imgsach/" + fileName;
+                    sach.imageUploader.SaveAs(Path.Combine(Server.MapPath("~/Content/imgsach/"), fileName));
+                }
+                int maDauSach = int.Parse(MaDauSach);
+                var check = database.DauSaches.Where(a => a.MaDauSach == maDauSach).SingleOrDefault();
+
+                if (check == null)
+                {
+                    sach.SoLuong = 0;
+                    database.DauSaches.Add(sach);
+                    database.SaveChanges();
+                    return RedirectToAction("DauSach", "Main");
+
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Trùng Mã Đầu Sách");
+                    return View(sach);
+                }
+            }
+            catch
+            {
+                return View(Content("Dữ Liệu đã tồn tại!!"));
+            }
+
+        }
+
+
         public ActionResult SuaDauSach(int id)
         {           
             return View(database.DauSaches.Where(a => a.MaDauSach == id).FirstOrDefault());
@@ -115,6 +172,7 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult SuaDauSach(int id, DauSach a)
         {
+            a = database.DauSaches.Where(item => item.MaDauSach == id).SingleOrDefault();
             database.Entry(a).State = System.Data.Entity.EntityState.Modified;
             database.SaveChanges();
             ViewBag.SuaDauSach_suss = "Sửa thành công !!!";

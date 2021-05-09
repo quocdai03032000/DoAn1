@@ -27,55 +27,69 @@
             <div class="col-md-4">
                 <h3 class="Them-Dau-sach-header-content"> Thêm đầu sách</h3>
             </div>
-            <div class="col-md-4">                
+            <div class="col-md-4">
                 <a class="DauSach-btn-add" href="@Url.Action("DauSach","Main")"> <i class="fas fa-chevron-left"></i> Quay lại</a>
             </div>
         </div>
-    </div>
-    <div class="login_register">
-        <form action="javascrip:void(0);" class="changePass">
+    </div>   
+    @using (Html.BeginForm("ThemDauSach", "Main", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
 
-            <div class="mess-suss-ThemDauSach">Thêm thành công !!!</div> <!-- bỏ viewbag vào đây -->
-            <div class="ThemDauSach-field">
-                <i class="fas fa-barcode"></i>
-                <input type="text" class="ThemDauSach-input" placeholder="Nhập mã sách" required>
-            </div>
-            <div class="ThemDauSach-field ">
-                <i class="fas fa-book"></i>
-                <input type="text" class="ThemDauSach-input " placeholder="Nhập tên sách" required>
-            </div>
-            <div class="ThemDauSach-field ">
-                <i class="fas fa-user-edit"></i>
-                <input type="text" class="ThemDauSach-input " placeholder="Nhập tác giả" required>
-            </div>
-            <div class="ThemDauSach-field ">
-                <i class="fas fa-caret-down"></i>
-                <input type="text" class="ThemDauSach-input " placeholder="Nhập thể loại" required>
-            </div>
-            <div class="ThemDauSach-field ">
-                <i class="fas fa-hand-point-right"></i>
-                <input type="text" class="ThemDauSach-input " placeholder="Nhập năm xuất bản" required pattern="[0-9]{1,4}" title="Vui lòng nhập số!">
-            </div>
-            <div class="ThemDauSach-field ">
-                <i class="fas fa-industry"></i>
-                <input type="text" class="ThemDauSach-input " placeholder="Nhập nhà xuất bản" required>
-            </div>
-            <div class=" ThemDauSach-field ThemDauSach-img">
-                <input type="file">
-                <img src="~/Assets/img/logoHuflit.png" alt="HinhSach">
-            </div>
-            <!-- <div class="ThemDauSach-field changePass-input-pass">
-                <input type="file" class="ThemDauSach-input ">
-            </div>                      -->
+        @Html.AntiForgeryToken();
+        @Html.HiddenFor(model => model.HinhAnh)
+        <div class="login_register">
+            <div class="changePass">
+                <div class="mess-suss-ThemDauSach">Thêm thành công !!!</div> <!-- bỏ viewbag vào dây -->
+                <div class="ThemDauSach-field">
+                    <i class="fas fa-barcode"></i>
+                    @Html.EditorFor(model => model.MaDauSach, new { htmlAttributes = new { @class = "ThemDauSach-input", @placeholder = "Nhập mã sách", @name = "MaDauSach" } })                 
+                </div>
+                <div class="ThemDauSach-field ">
+                    <i class="fas fa-book"></i>
+                    @Html.EditorFor(model => model.TenSach, new { htmlAttributes = new { @class = "ThemDauSach-input",@placeholder = "Nhập tên sách" } })
+                </div>
+                <div class="ThemDauSach-field ">
+                    <i class="fas fa-user-edit"></i>
+                    @Html.EditorFor(model => model.TacGia, new { htmlAttributes = new { @class = "ThemDauSach-input", @placeholder = "Nhập tác giả" } })
+                </div>
+                <div class="ThemDauSach-field ">
+                    <i class="fas fa-caret-down"></i>
+                    @Html.EditorFor(model => model.TheLoai, new { htmlAttributes = new { @class = "ThemDauSach-input", @placeholder = "Nhập thể loại" } })
+                </div>
+                <div class="ThemDauSach-field ">
+                    <i class="fas fa-hand-point-right"></i>
+                    @Html.EditorFor(model => model.NamXuatBan, new { htmlAttributes = new { @class = "ThemDauSach-input", @placeholder = "Nhập năm xuất bản", @requiredpattern = "[0-9]{1,4}", @title = "Vui lòng nhập số!" } })
+                </div>
+                <div class="ThemDauSach-field ">
+                    <i class="fas fa-industry"></i>
+                    @Html.EditorFor(model => model.NhaXuatBan, new { htmlAttributes = new { @class = "ThemDauSach-input", @placeholder = "Nhập nhà xuất bản" } })
+                </div>
+                <div class=" ThemDauSach-field ThemDauSach-img">                  
+                    <input type="file" value="img" name="imageUploader" onchange="ShowImg(this, document.getElementById('previewImg'))" />
+                    <img src="@Url.Content(Model.HinhAnh)" id="previewImg" alt="Hinh anh sach">                            
+                </div>              
 
-            <button type="submit" class="changePass-submit">Thêm đầu sách</button>
+                <button type="submit" class="changePass-submit">Thêm đầu sách</button>
 
-            <div class="mess-error-changePass">Message Error</div> <!-- bỏ viewbag vào đây -->
-
-
-        </form>
-    </div>
-
+                <div class="mess-error-changePass">Message Error</div> <!-- bỏ viewbag vào đây -->
+            </div>
+        </div>
+    }
 
 </body>
 </html>
+
+
+<script>
+    function ShowImg(imageUploader, previewImg) {
+        if (imageUploader.files && imageUploader.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $(previewImg).attr('src', e.target.result);
+            }
+            // doc duong dan cua du lieu
+            reader.readAsDataURL(imageUploader.files[0]);
+        }
+
+    }
+</script>

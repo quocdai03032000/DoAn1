@@ -594,6 +594,23 @@ h4 {
     background-color: #940000;
     border: 1px solid #940000;
 }
+/*============================================*/
+/*=========  Hiển thị thông báo ==============*/
+/*============================================*/
+
+.Message_suss {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    margin: 5px auto;
+}
+
+.Message_suss > h5 {
+        text-align: center;
+        color: #009e28;
+        font-size: 13px;
+        margin: 0px;
+    }
 
 /*============================================*/
 /*============================================*/
