@@ -1,16 +1,21 @@
-﻿@model IEnumerable<DoAn1_QLTV_User_.Models.DauSach> 
+﻿@model IEnumerable<DoAn1_QLTV_User_.Models.DauSach>
 
 @{
     ViewBag.Title = "Main";
     Layout = "~/Areas/User/Views/Shared/_LayoutLoginSuccess.cshtml";
 }
 
-<div class="col-md-5">
-    <div class="search position_search">
-        <input type="text" placeholder="Tìm kiếm">
-        <button><i class="fa fa-search"></i></button>
+@using (Html.BeginForm("Main", "User"))
+{
+    <div class="search_func">
+        <div class="col-md-5">
+            <div class="search">
+                <input type="text" placeholder="Tìm kiếm" name="text">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
     </div>
-</div>
+}
 <div class="container" style="margin-top:10px;">
     <div class="row">
         @foreach (var item in Model)
@@ -21,12 +26,11 @@
                     <p>@Html.DisplayFor(model => item.TenSach)</p>
                     <p>@Html.DisplayFor(model => item.TacGia)</p>
                     <p>@Html.DisplayFor(model => item.TheLoai)</p>
-                    <p>@Html.ActionLink("Thuê", "Details_Book", new { id = item.MaDauSach })</p>
+                    <button type="button" style="margin-bottom: 10px; padding: 5px 10px; font-size: 10px; color: black;">@Html.ActionLink("Thuê", "Details_Book", new { id = item.MaDauSach })</button>
                 </div>
             </div>
         }
     </div>
 </div>
-
-<h2>Main</h2>
+    
 

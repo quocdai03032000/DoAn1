@@ -23,9 +23,14 @@ namespace DoAn1_QLTV_User_.Areas.User.Controllers
 
         //DauSach
         
-        public ActionResult MainUser()
+        public ActionResult MainUser(string text)
         {
-            return View(db.DauSaches.ToList());
+            if (text == null)
+                return View(db.DauSaches.ToList());
+            else
+            {
+                return View(db.DauSaches.Where(s => s.TenSach.Contains(text)||s.TheLoai.Contains(text)).ToList());
+            }
         }
 
         public ActionResult Details_Book(int id)
@@ -33,9 +38,14 @@ namespace DoAn1_QLTV_User_.Areas.User.Controllers
             return View(db.DauSaches.Where(s => s.MaDauSach == id).FirstOrDefault()); 
         }
 
-        public ActionResult Main()
+        public ActionResult Main(string text)
         {
-            return View(db.DauSaches.ToList());
+            if (text == null)
+                return View(db.DauSaches.ToList());
+            else
+            {
+                return View(db.DauSaches.Where(s => s.TenSach.Contains(text)||s.TheLoai.Contains(text)).ToList());
+            }
         }
 
 
@@ -137,18 +147,12 @@ namespace DoAn1_QLTV_User_.Areas.User.Controllers
             }
         }
 
-/*        public ActionResult Detail_Account()
-        {
-            return View();
-        }*/
-
- /*       [HttpPost]*/
         public ActionResult Detail_Account(DangKyTheTV tv)
         {
             string mathe = Session["MaThe"].ToString();
             tv = db.DangKyTheTVs.Where(s => s.MaThe.Equals(mathe)).FirstOrDefault();
             if (tv != null)
-                return View("Detail_Account");
+                return View("Detail_Account",tv);
             else
                 return View("Main");
         }

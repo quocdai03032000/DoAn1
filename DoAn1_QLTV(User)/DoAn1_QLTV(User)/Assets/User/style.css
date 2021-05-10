@@ -243,7 +243,15 @@
 /********** Contact CSS ***********/
 /**********************************/
 .container {
-    margin-top: 10px;
+    position: fixed;
+    overflow: scroll;
+    top: 70px;
+    bottom: 50px;
+    right:0;
+    margin: 10px auto;
+    padding: 20px;
+    text-align: center;
+    max-width:100%;
 }
 
 .contact {
@@ -372,3 +380,5 @@
         background-color: #FFD700;
         outline: none;
     }
+
+
