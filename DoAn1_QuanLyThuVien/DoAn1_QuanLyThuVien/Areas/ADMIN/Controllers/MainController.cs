@@ -328,7 +328,49 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
         }
 
 
+        #region Quản Lý mượn trả
 
+        public ActionResult QLMuonTraSach(string _name)
+        {
+            if (Session["User"] != null)
+            {
+                if (_name == null)
+                {
+                    return View(database.Sach_Dang_Muon.ToList());
+                }
+                else
+                    return View(database.Sach_Dang_Muon.Where(s => s.MaThe.Contains(_name)).ToList());
+            }
+            else
+                return RedirectToAction("Index", "Main");
+           
+        }
+
+
+        public ActionResult DSDangKy_MuonSach(string _name)
+        {
+            //if (Session["User"] != null)
+            //{
+               
+            //}
+            //else
+            //    return RedirectToAction("Index", "Main");
+            if (_name == null)
+            {
+                return View(database.DKyMuonSaches.ToList());
+            }
+            else
+                return View(database.DKyMuonSaches.Where(s => s.MaThe.Contains(_name)).ToList());
+        }
+        [HttpGet]
+        public ActionResult Xoa_MuonSach(string id)
+        {           
+            var del = database.DKyMuonSaches.Where(a => a.MaDangKyMuonSach == id).SingleOrDefault();
+            database.DKyMuonSaches.Remove(del);
+            database.SaveChanges();
+            return RedirectToAction("DSDangKy_MuonSach", "Main");
+        }
+        #endregion
 
     }
 }
