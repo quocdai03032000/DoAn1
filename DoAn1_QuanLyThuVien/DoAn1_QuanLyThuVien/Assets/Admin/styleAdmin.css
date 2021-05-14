@@ -290,11 +290,10 @@ tbody > tr {
     color: red;
 }
 
-.table_DauSach_status {
-    color: red;
+.table_DauSach_status{
+    color: black;
     width: 100px;
 }
-
 .table_DauSach_btn > a {
     border: 1px solid rgba(0, 0, 0, 0.322);
     outline: none;
@@ -472,12 +471,14 @@ tbody > tr:hover {
 }
 
 .mess-suss-ThemDauSach {
-    color: #229b6a;
+    /*color: #229b6a;*/
+    color:red;
     text-align: center;
     margin-bottom: 5px;
     font-size: 15px;
     font-weight: 600;
 }
+
 .title-SuaDauSach {
     margin-bottom: 0px;
     margin-left: 10px;
@@ -611,6 +612,96 @@ h4 {
         font-size: 13px;
         margin: 0px;
     }
+/**********************************/
+/********** Register thẻ thư viện CSS **********/
+/**********************************/
+
+.register {
+    width: 400px;
+    background-color: white;
+    margin: 50px auto;
+    padding: 20px 40px 40px 40px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 50px 1px rgba(0, 0, 0, 0.205);
+}
+
+.header-register > h5 {
+    text-align: center;
+    color: #007bff;
+    font-size: 25px;
+    padding: 0;
+    margin: 25px 0 0px;
+    font-weight: 600;
+}
+
+.register-field {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(153, 153, 153, 0.432);
+}
+
+.register-icon {
+    color: rgba(0, 0, 0, 0.705);
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+}
+
+.register-input {
+    border: 0;
+    padding: 0 0 0 15px;
+    background-color: transparent;
+    outline: none;
+    font-family: "Abeezee",sans-serif;
+    width: 100%;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.705);
+}
+
+.register-submit {
+    color: rgb(241, 241, 241);
+    border-radius: 10px;
+    display: block;
+    width: 100%;
+    padding: 15px 10px;
+    border: 0;
+    background-color: #25b37a;
+    cursor: pointer;
+    font-family: "Abeezee",sans-serif;
+    font-size: 17px;
+    outline: none;
+}
+
+.register-input-pass {
+    margin-bottom: 0px;
+}
+
+.register-submit:hover {
+    background-color: #229b6a;
+}
+
+.home_back {
+    text-decoration: none;
+    display: inline-block;
+    color: #229b6a;
+    font-weight: 600;
+    font-size: 13px;
+    margin: 10px 15px 10px 0px;
+    margin-left: 10px;
+}
+
+.page_login {
+    text-decoration: none;
+    display: inline-block;
+    text-align: right;
+    color: #229b6a;
+    font-weight: 600;
+    font-size: 13px;
+    margin-left: 85px;
+}
 
 /*============================================*/
 /*============================================*/

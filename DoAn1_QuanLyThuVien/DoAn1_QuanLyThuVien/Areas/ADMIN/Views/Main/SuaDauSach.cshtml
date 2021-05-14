@@ -57,8 +57,10 @@
                 </div>
                 @*<p class="title-SuaDauSach">Mã sách</p>*@ 
                 <div class=" ThemDauSach-field ThemDauSach-img">
-                    <input type="file">
-                    <img src="../img/logoHuflit.png" alt="HinhSach">
+                    <input type="file" value="img" name="imageUploader" onchange="ShowImg(this, document.getElementById('previewImg'))" />
+                    <img src="@Url.Content(Model.HinhAnh)" id="previewImg" alt="Hinh anh sach">
+                    @*<input type="file">
+                    <img src="../img/logoHuflit.png" alt="HinhSach">*@
                 </div>              
 
                 <button type="submit" class="changePass-submit">Sửa đầu sách</button>

@@ -27,6 +27,7 @@
                 <thead>
                     <tr>
                         <td>Ngày mượn</td>
+                        <td>Ngày trả</td>
                         <td>MSSV</td>
                         <td>Họ tên</td>
                         <td>Tên sách</td>
@@ -36,6 +37,7 @@
                     @foreach (var item in Model)
                     {
                         <tr>
+                            <td>@Html.DisplayFor(a => item.NgayMuon)</td>
                             <td>@Html.DisplayFor(a => item.NgayTra)</td>
                             <td>@Html.DisplayFor(a => item.MSSV)</td>
                             <td>@Html.DisplayFor(a => item.TheThuVien.HoTen)</td>

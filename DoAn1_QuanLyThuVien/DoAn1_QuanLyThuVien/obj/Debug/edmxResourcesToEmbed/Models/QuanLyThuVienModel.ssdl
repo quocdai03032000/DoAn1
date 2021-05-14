@@ -25,6 +25,7 @@
     <Property Name="NgayTra" Type="datetime" />
     <Property Name="MSSV" Type="nvarchar" MaxLength="50" />
     <Property Name="MaSach" Type="int" />
+    <Property Name="NgayMuon" Type="datetime" />
   </EntityType>
   <EntityType Name="DangKyTheTV">
     <Key>

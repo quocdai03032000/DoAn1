@@ -8,6 +8,7 @@
 <body>
     @using (Html.BeginForm("DsTheThuVien", "Main"))
     {
+
         <div class="Header_Dau_Sach">
             <div class="row align-items-center ">
                 <div class="col-md-4 ">
@@ -17,7 +18,7 @@
                     <input type="search" placeholder="Nhập MSSV...." name="_name">
                 </div>
                 <div class="col-md-4">
-                    <a class="DauSach-btn-add" href="#">Tạo thẻ mới</a>
+                    <a class="DauSach-btn-add" href="@Url.Action("ThemTheTV","Main")">Tạo thẻ mới</a>
                 </div>
             </div>
         </div>
@@ -42,7 +43,7 @@
                         <tr>
                             <td>@Html.DisplayFor(a => item.MaThe)</td>
                             <td>@Html.DisplayFor(a => item.HoTen)</td>
-                            <td class="table_DauSach_status"><i class="fas fa-circle icon_status"></i> @Html.DisplayFor(a => item.TinhTrang_TheTV.TenTinhTrang)</td>
+                            <td class="table_DauSach_status">@Html.DisplayFor(a => item.TinhTrang_TheTV.TenTinhTrang)</td>                            
                             <td>@Html.DisplayFor(a => item.NgayLam)</td>
                             <td>@Html.DisplayFor(a => item.NgayHetHan)</td>
                             <td>@Html.DisplayFor(a=>item.GhiChu)</td>

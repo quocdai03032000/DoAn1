@@ -350,3 +350,224 @@
         outline: none;
 }
 
+.user_index{
+    min-height:100vh;
+}
+/*------ css index user -----*/
+.card-pro {
+    width: 200px;
+    height: 230px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 50px 1px rgba(0, 0, 0, 0.205);
+    margin-bottom:50px;
+}
+
+.card-pro > a > img {
+    height: 200px;
+    width: 170px;
+    margin: 15px;
+}
+
+.card-pro > h4 {
+    text-align: center;
+    font-size: 20px;
+    font-family: "Abeezee",sans-serif;
+    padding:5px;
+}
+
+/**********************************/
+/********* CHI TIẾT SÁCH CSS**********/
+/**********************************/
+.product-detail {
+    position: relative;
+    width: 100%;
+    padding: 30px 0;
+}
+
+.product-detail .product-detail-top,
+.product-detail .product-detail-bottom {
+    margin-bottom: 30px;
+}
+
+.product-detail .product-detail-top {
+    padding: 0;
+    background: #ffffff;
+    /* box-shadow: 0px 0px 50px 1px rgba(0, 0, 0, 0.205) ; */
+   
+}
+
+.product-detail .product-slider-single img {
+    width: 100%;
+}
+
+.product-detail .product-slider-single-nav {
+    margin: 15px 30px 30px 30px;
+    border: 3px double #FF6F61;
+}
+
+.product-detail .product-slider-single-nav .slider-nav-img {
+    border-right: 1px solid #FF6F61;
+    overflow: hidden;
+}
+
+.product-detail .product-slider-single-nav img {
+    width: 100%;
+    transition: all .3s;
+}
+
+.product-detail .product-slider-single-nav img:hover {
+    transform: scale(1.2);
+}
+
+.product-detail .product-content,
+.product-detail .product-content .title,
+.product-detail .product-content .ratting,
+.product-detail .product-content .price,
+.product-detail .product-content .details,
+.product-detail .product-content .quantity,
+.product-detail .product-content .action {
+    position: relative;
+    width: 100%;
+}
+
+.product-detail .product-content {
+    padding: 30px;
+}
+
+@media (min-width: 768px) {
+    .product-detail .product-content {
+        padding-left: 0;
+    }
+}
+
+.product-detail .product-content .title h2 {
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+.product-detail .product-content .ratting {
+    margin-bottom: 10px;    
+}
+
+.product-detail .product-content .ratting i {
+    color: #FFD700;
+    font-size: 16px;
+}
+
+.product-detail .product-content .price,
+.product-detail .product-content .quantity,
+.product-detail .product-content .p-size,
+.product-detail .product-content .p-color {
+    margin-bottom: 15px;
+}
+
+.product-detail .product-content .price h4,
+.product-detail .product-content .quantity h4,
+.product-detail .product-content .p-size h4,
+.product-detail .product-content .p-color h4 {
+    display: inline-block;
+    /* width: 80px; */
+    font-size: 18px;
+    font-weight: 700;
+    margin-right: 5px;
+}
+/************** table ****************/
+.list_DauSach_table{
+    width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: none;
+    box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
+    border-radius: 1.5px;
+    margin-top: 25px;
+}
+.table_DauSach{
+    text-align: center;
+    border-collapse: collapse;
+    width: 100%;
+    
+}
+
+.table_DauSach > thead{
+    background-color: #394551;    
+    color: white;
+    font-weight: 400;
+ 
+}
+
+.table_DauSach > thead > tr >td
+{
+    font-size: 13px;
+    font-weight: bold;
+} 
+.table_DauSach td{
+    padding: 10px;
+}
+
+tbody > tr{
+    border-top: 0.5px solid rgba(105, 105, 105, 0.329);
+}
+tbody >tr >td{
+    font-size: 12.5px;
+}
+
+
+.table_DauSach_btn > a{
+    border: 1px solid rgba(0, 0, 0, 0.322);
+    outline: none;
+    text-decoration: none;
+    padding: 7px;
+    border-radius: 3px;
+    cursor: pointer;   
+    color: black;  
+
+}
+
+.table_DauSach_btn > a:hover,
+.table_DauSach_btn > a:active{
+    color: white;
+    background-color:#394551 ;
+  
+    
+}
+tbody > tr:hover{
+    background-color: rgb(236, 236, 236);
+    cursor: pointer;
+}
+/* .chi-tiet{
+    box-shadow: 0px 0px 50px 1px rgba(0, 0, 0, 0.205) ;
+} */
+
+.sidebar-widget {
+    padding: 30px;
+    background: #ffffff;
+}
+
+.sidebar-widget:not(:first-child) {
+    padding-top: 0;
+}
+
+.sidebar-widget .title {
+    position: relative;
+    font-size: 22px;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+}
+
+.sidebar-widget.category {
+    margin: 0;
+}
+
+.sidebar-widget.category .navbar {
+    padding: 0;
+    overflow: hidden;
+    background: #ffffff !important;
+}
+
+.sidebar-widget.category .navbar-nav {
+    width: 100%;
+}
+
+/**********************************/
+/**********************************/
+/**********************************/

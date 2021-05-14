@@ -14,11 +14,17 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
+            //context.MapRoute(
+            //    "Admin_default",
+            //    "Admin/{controller}/{action}/{id}",
+            //    new { action = "Index", id = UrlParameter.Optional }
+            //);
+
             context.MapRoute(
-                "Admin_default",
+                "Admin",
                 "Admin/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
-            );
+                new { Controller="Main", action = "Index", id = UrlParameter.Optional }
+            );           
         }
     }
 }

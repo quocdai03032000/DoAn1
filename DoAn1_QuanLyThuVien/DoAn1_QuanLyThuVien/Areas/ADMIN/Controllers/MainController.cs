@@ -28,7 +28,7 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
             }
             else
             {
-                Session["User"] = ad.User;
+                Session["Admin"] = ad.User;
                 return RedirectToAction("Main", "Main");
             }
         }
@@ -37,7 +37,7 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
 
         public ActionResult Logout(Account_Admin ad)
         {
-            Session.Abandon();
+            Session["Admin"] = null;
             return RedirectToAction("Index", "Main");
 
         }
@@ -80,7 +80,7 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
         public ActionResult Main()
         {
             /*Kiểm tra xem đã đăng nhập chưa ?*/
-            if (Session["User"] != null)
+            if (Session["Admin"] != null)
             {
                 return View();
             }
@@ -92,7 +92,7 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
         /* ---- Đầu sách -----*/
         public ActionResult DauSach(string _name)
         {
-            if (Session["User"] != null)
+            if (Session["Admin"] != null)
             {
                 if (_name == null)
                 {
@@ -112,7 +112,7 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
             return View(ds);
         }
         [HttpPost]
-        public ActionResult ThemDauSach(string MaDauSach, DauSach sach)
+        public ActionResult ThemDauSach(int MaDauSach, DauSach sach,string imageUploader,string _name,string _tg,string _tl,int year,string NXB)
         {
 
             try
@@ -125,12 +125,19 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
                     sach.HinhAnh = "~/Content/imgsach/" + fileName;
                     sach.imageUploader.SaveAs(Path.Combine(Server.MapPath("~/Content/imgsach/"), fileName));
                 }
-                int maDauSach = int.Parse(MaDauSach);
-                var check = database.DauSaches.Where(a => a.MaDauSach == maDauSach).SingleOrDefault();
+               
+                var check = database.DauSaches.Where(a => a.MaDauSach == MaDauSach).SingleOrDefault();
 
                 if (check == null)
                 {
+                    sach.MaDauSach = MaDauSach;
+                    sach.TenSach = _name;
+                    sach.TacGia = _tg;
+                    sach.TheLoai = _tl;
+                    sach.NamXuatBan = year;
+                    sach.NhaXuatBan = NXB;
                     sach.SoLuong = 0;
+                    
                     database.DauSaches.Add(sach);
                     database.SaveChanges();
                     return RedirectToAction("DauSach", "Main");
@@ -138,7 +145,7 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Trùng Mã Đầu Sách");
+                    ViewBag.ThemDauSach = "Trùng mã đầu sách";
                     return View(sach);
                 }
             }
@@ -155,9 +162,11 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
             return View(database.DauSaches.Where(a => a.MaDauSach == id).FirstOrDefault());
         }
         [HttpPost]
-        public ActionResult SuaDauSach(int id, DauSach a)
-        {
+        public ActionResult SuaDauSach(int id, DauSach a, string imageUploader)
+        {        
+
             a = database.DauSaches.Where(item => item.MaDauSach == id).SingleOrDefault();
+            a.HinhAnh = "~/Content/imgsach/" + imageUploader;
             database.Entry(a).State = System.Data.Entity.EntityState.Modified;
             database.SaveChanges();
             ViewBag.SuaDauSach_suss = "Sửa thành công !!!";
@@ -166,7 +175,7 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult XoaDauSach(int id)
         {
-            var check = database.Saches.Where(a => a.MaDauSach == id).SingleOrDefault();
+            var check = database.Saches.Where(a => a.MaDauSach == id).FirstOrDefault();
             if (check == null)
             {
                 var DauSach = database.DauSaches.Where(a => a.MaDauSach == id).SingleOrDefault();
@@ -175,7 +184,7 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
             }
             else
             {
-                ViewBag.Error_XoaDauSach = "Không thể xoá vì còn tồn tại sách thuộc đầu sách này ";
+                ViewBag.Error_XoaDauSach = "Không thể xoá vì còn tồn tại sách thuộc đầu sách này";
             }
             return RedirectToAction("DauSach", "Main");
 
@@ -184,7 +193,7 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
         /*----- Sách -----*/
         public ActionResult Sach(string _name)
         {
-            if (Session["User"] != null)
+            if (Session["Admin"] != null)
             {
                 if (_name == null)
                 {
@@ -244,7 +253,7 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
         /*----- Thẻ TV -----*/
         public ActionResult DsTheThuVien(string _name)
         {
-            if (Session["User"] != null)
+            if (Session["Admin"] != null)
             {
                 if (_name == null)
                 {
@@ -257,15 +266,25 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
                 return RedirectToAction("Index", "Main");
 
         }
-        /*----- block thẻ thư viện -----*/
+        /*----- block và mở block thẻ thư viện -----*/
         [HttpGet]
         public ActionResult BlockTheThuVien(string id)
         {
             var theTV = database.TheThuViens.Where(a => a.MaThe == id).SingleOrDefault();
-            theTV.MaTinhTrang = 1;
-            database.Entry(theTV).State = System.Data.Entity.EntityState.Modified;
-            database.SaveChanges();
-            return RedirectToAction("DsTheThuVien", "Main");
+            if(theTV.MaTinhTrang!=1)
+            {
+                theTV.MaTinhTrang = 1;
+                database.Entry(theTV).State = System.Data.Entity.EntityState.Modified;
+                database.SaveChanges();
+                ViewBag.Mess_BlockTheThuVien = "Khoá thẻ thành công";
+            }else if(theTV.MaTinhTrang == 1)
+            {
+                theTV.MaTinhTrang = 2;
+                database.Entry(theTV).State = System.Data.Entity.EntityState.Modified;
+                database.SaveChanges();
+                ViewBag.Mess_BlockTheThuVien = "Mở thẻ thành công";
+            }            
+            return RedirectToAction("DsTheThuVien");
         }
         /*----- Xoá thẻ thư viện -----*/
         [HttpGet]
@@ -291,7 +310,7 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
         /*----- Danh Sách đăng ký thẻ TV -----*/
         public ActionResult DsDangKyTheTV(string _name)
         {
-            if (Session["User"] != null)
+            if (Session["Admin"] != null)
             {
                 if (_name == null)
                 {
@@ -316,9 +335,7 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
             TheTV.Password = DangKyTheTV.Password;
             TheTV.HoTen = DangKyTheTV.HoTen;
             TheTV.NgayLam = DangKyTheTV.NgayLam;
-            //lấy ra và ép kiểu datetime từ database
-            //DateTime NgayHetHan = DateTime.Parse(DangKyTheTV.NgayLam.ToString());
-            //TheTV.NgayHetHan = NgayHetHan.AddYears(4);
+            TheTV.NgayHetHan = DateTime.Now.AddYears(4);            
             database.TheThuViens.Add(TheTV);
             //Đồng thời xoá thẻ tv trong bảng đăng ký thẻ tv
             database.DangKyTheTVs.Remove(DangKyTheTV);
@@ -341,7 +358,7 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
 
         public ActionResult QLMuonTraSach(string _name)
         {
-            if (Session["User"] != null)
+            if (Session["Admin"] != null)
             {
                 if (_name == null)
                 {
@@ -354,11 +371,32 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
                 return RedirectToAction("Index", "Main");
 
         }
+        //Trả sách
+        public ActionResult TraSach(int id)
+        {
+            var del = database.Sach_Dang_Muon.Where(a => a.MaSachMuon == id).SingleOrDefault();
+            //thêm vào báo cáo
+            BaoCaoTraSach baocao = new Models.BaoCaoTraSach();
+            baocao.MaSach = del.MaSach;
+            baocao.MSSV = del.MaThe;
+            baocao.NgayTra = DateTime.Now;
+            baocao.NgayMuon = del.NgayMuon;
+            database.BaoCaoTraSaches.Add(baocao);
+
+            //Cập tình trạng sách
+            var sach = database.Saches.Where(a => a.id == del.MaSach).FirstOrDefault();
+            sach.MaTinhTrangSach = 1;
+
+            //xoá sách
+            database.Sach_Dang_Muon.Remove(del);
+            database.SaveChanges();
+            return RedirectToAction("QLMuonTraSach", "Main");
+        }
 
 
         public ActionResult DSDangKy_MuonSach(string _name)
         {
-            //if (Session["User"] != null)
+            //if (Session["Admin"] != null)
             //{
 
             //}
@@ -376,12 +414,21 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Them_DSDangKy_MuonSach(int id)
         {
+            
             var DK_MuonSach = database.DKyMuonSaches.Where(a => a.MaDangKyMuonSach == id).SingleOrDefault();
             var Sach_muon = new Sach_Dang_Muon();
             Sach_muon.MaThe = DK_MuonSach.MaThe;
             Sach_muon.MaSach = DK_MuonSach.MaSach;
             Sach_muon.NgayMuon = DateTime.Now;
             database.Sach_Dang_Muon.Add(Sach_muon);
+
+            //Them vao báo cáo
+            BaoCaoMuonSach baocao = new Models.BaoCaoMuonSach();
+            baocao.NgayMuon = DateTime.Now;
+            baocao.Mssv = DK_MuonSach.MaThe;
+            baocao.MaSach = DK_MuonSach.MaSach;
+            database.BaoCaoMuonSaches.Add(baocao);
+           
             database.DKyMuonSaches.Remove(DK_MuonSach);
             database.SaveChanges();
             return RedirectToAction("DSDangKy_MuonSach", "Main");
@@ -392,22 +439,17 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
         {           
             var del = database.DKyMuonSaches.Where(a => a.MaDangKyMuonSach == id).SingleOrDefault();
             database.DKyMuonSaches.Remove(del);
+            //Cập tình trạng sách
+            var sach = database.Saches.Where(a => a.id == del.MaSach).FirstOrDefault();
+            sach.MaTinhTrangSach = 1;
             database.SaveChanges();
             return RedirectToAction("DSDangKy_MuonSach", "Main");
-        }
-        //Trả sách
-        public ActionResult TraSach(int id)
-        {
-            var del = database.Sach_Dang_Muon.Where(a => a.MaSachMuon == id).SingleOrDefault();
-            database.Sach_Dang_Muon.Remove(del);
-            database.SaveChanges();
-            return RedirectToAction("QLMuonTraSach", "Main");
-        }
+        }      
         #endregion
 
         public ActionResult BaoCaoMuonSach(string _name)
         {
-            if (Session["User"] != null)
+            if (Session["Admin"] != null)
             {
                 if (_name == null)
                 {
@@ -421,7 +463,7 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
         }
         public ActionResult BaoCaoTraSach(string _name)
         {
-            if (Session["User"] != null)
+            if (Session["Admin"] != null)
             {
                 if (_name == null)
                 {
@@ -447,6 +489,35 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
             ViewBag.slSachHong = slSachHong.ToString();
             ViewBag.slSachMat = slSachMat.ToString();
             return View(database.Saches.Where(a => a.MaTinhTrangSach == 4).ToList());
+        }
+
+        public ActionResult ThemTheTV()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ThemTheTV(string MSSV,string HoTen)
+        {
+            var check = database.TheThuViens.Where(a => a.MaThe == MSSV).FirstOrDefault();
+            if(check==null)
+            {
+                TheThuVien theTV = new TheThuVien();
+                theTV.MaThe = MSSV;
+                theTV.HoTen = HoTen;
+                theTV.NgayLam = DateTime.Now;
+                theTV.NgayHetHan = DateTime.Now.AddYears(4);
+                theTV.MaTinhTrang = 2;
+                theTV.Password = "123";
+                database.TheThuViens.Add(theTV);
+                database.SaveChanges();
+                ViewBag.ThemTheTV = "Thêm thành công";
+                return View("ThemTheTV");
+            }
+            else
+            {
+                ViewBag.ThemTheTV = "Trùng MSSV";
+                return View("ThemTheTV");
+            }
         }
     }
 }

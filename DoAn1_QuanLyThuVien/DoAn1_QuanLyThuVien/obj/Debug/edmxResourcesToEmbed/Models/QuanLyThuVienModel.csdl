@@ -29,6 +29,7 @@
     <Property Name="MaSach" Type="Int32" />
     <NavigationProperty Name="Sach" Relationship="Self.FK_BaoCaoTraSach_Sach" FromRole="BaoCaoTraSach" ToRole="Sach" />
     <NavigationProperty Name="TheThuVien" Relationship="Self.FK_BaoCaoTraSach_TheThuVien" FromRole="BaoCaoTraSach" ToRole="TheThuVien" />
+    <Property Name="NgayMuon" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="DangKyTheTV">
     <Key>

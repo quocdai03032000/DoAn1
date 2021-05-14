@@ -57,7 +57,7 @@ namespace DoAn1_QuanLyThuVien.Areas.User.Controllers
         /*----- Logout -----*/
         public ActionResult Logout()
         {
-            Session.Abandon();
+            Session["User"] = null;
             return RedirectToAction("Index", "Main");
 
         }
@@ -97,6 +97,12 @@ namespace DoAn1_QuanLyThuVien.Areas.User.Controllers
             }
         }
         #endregion
+
+        [HttpGet]
+        public ActionResult ChiTietSach(int id)
+        {
+            return View(database.Saches.Where(a=>a.MaDauSach==id).ToList());
+        }
 
         public ActionResult Contact()
         {

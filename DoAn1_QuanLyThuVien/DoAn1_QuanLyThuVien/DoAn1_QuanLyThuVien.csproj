@@ -155,6 +155,7 @@
     <Compile Include="Areas\User\Controllers\MainController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\testController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -294,6 +295,8 @@
     <Content Include="Areas\Admin\Views\Main\BaoCaoMuonSach.cshtml" />
     <Content Include="Areas\Admin\Views\Main\BaoCaoTraSach.cshtml" />
     <Content Include="Areas\Admin\Views\Main\BaoCaoTinhTrang.cshtml" />
+    <Content Include="Areas\Admin\Views\Main\ThemTheTV.cshtml" />
+    <Content Include="Areas\User\Views\Main\ChiTietSach.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\IMG_scripts.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -320,6 +323,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\test\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -23,6 +23,7 @@
     <EntitySetMapping Name="BaoCaoTraSaches">
       <EntityTypeMapping TypeName="QuanLyThuVienModel.BaoCaoTraSach">
         <MappingFragment StoreEntitySet="BaoCaoTraSach">
+          <ScalarProperty Name="NgayMuon" ColumnName="NgayMuon" />
           <ScalarProperty Name="id_BaoCaoTraSach" ColumnName="id_BaoCaoTraSach" />
           <ScalarProperty Name="NgayTra" ColumnName="NgayTra" />
           <ScalarProperty Name="MSSV" ColumnName="MSSV" />
