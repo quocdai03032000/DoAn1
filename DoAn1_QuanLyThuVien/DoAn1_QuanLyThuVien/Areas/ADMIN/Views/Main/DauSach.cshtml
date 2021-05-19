@@ -9,7 +9,7 @@
 <body>
     @using (Html.BeginForm("DauSach", "Main"))
     {
-        @ViewBag.Error_XoaDauSach;
+       
         <div class="Header_Dau_Sach">
             <div class="row align-items-center ">
                 <div class="col-md-4 ">
@@ -24,10 +24,7 @@
                 </div>
             </div>
         </div>
-        <!-- Hiển thị thông báo  -->
-        <div class="Message_suss">
-            <h5>@ViewBag.Message_suss <i class="fas fa-check"></i></h5>
-        </div>
+       
         <div class="list_DauSach_table">
             <table class="table_DauSach">
                 <thead>

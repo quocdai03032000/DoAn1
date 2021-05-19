@@ -243,11 +243,20 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
         {
             var xoaSach = database.Saches.Where(a => a.id == id).SingleOrDefault();
             var dauSach = database.DauSaches.Where(a => a.MaDauSach == xoaSach.MaDauSach).SingleOrDefault();
-            /*----- Cap nhat so luon dau sach ----- */
-            dauSach.SoLuong -= 1;
-            database.Saches.Remove(xoaSach);
-            database.SaveChanges();
-            return RedirectToAction("Sach", "Main");
+            if(xoaSach.MaTinhTrangSach!=2)
+            {
+                /*----- Cap nhat so luon dau sach ----- */
+                dauSach.SoLuong -= 1;
+                database.Saches.Remove(xoaSach);
+                database.SaveChanges();
+                return RedirectToAction("Sach", "Main");
+            }
+            else
+            {
+                Session["XoaSachMess"] = "yes";
+                return RedirectToAction("Sach", "Main");
+            }
+            
         }
 
         /*----- Thẻ TV -----*/
@@ -291,9 +300,20 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
         public ActionResult XoaTheThuVien(string id)
         {
             var xoaTheTV = database.TheThuViens.Where(a => a.MaThe == id).SingleOrDefault();
-            database.TheThuViens.Remove(xoaTheTV);
-            database.SaveChanges();
-            return RedirectToAction("DsTheThuVien", "Main");
+            // kiểm tra chỉ được xoá khi tài khoản k mượn sách
+            if (xoaTheTV.MaTinhTrang!=3)
+            {                
+                database.TheThuViens.Remove(xoaTheTV);
+                database.SaveChanges();
+                return RedirectToAction("DsTheThuVien", "Main");
+            }
+            else
+            {
+                Session["XoaTheThuVien"] = "true";
+                return RedirectToAction("DsTheThuVien", "Main");
+            }
+
+            
         }
 
         /*----- Reset Password -----*/
@@ -379,7 +399,9 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
             //thêm vào báo cáo
             BaoCaoTraSach baocao = new Models.BaoCaoTraSach();
             baocao.MaSach = del.MaSach;
-            baocao.MSSV = del.MaThe;
+            baocao.TenSach = del.Sach.DauSach.TenSach;
+            baocao.HoTen = del.TheThuVien.HoTen;
+            baocao.MSSV = del.MaThe;            
             baocao.NgayTra = DateTime.Now;
             baocao.NgayMuon = del.NgayMuon;
             database.BaoCaoTraSaches.Add(baocao);
@@ -437,6 +459,8 @@ namespace DoAn1_QuanLyThuVien.Areas.Admin.Controllers
             BaoCaoMuonSach baocao = new Models.BaoCaoMuonSach();
             baocao.NgayMuon = DateTime.Now;
             baocao.Mssv = DK_MuonSach.MaThe;
+            baocao.TenSach = DK_MuonSach.Sach.DauSach.TenSach;
+            baocao.HoTen = DK_MuonSach.TheThuVien.HoTen;
             baocao.MaSach = DK_MuonSach.MaSach;
             database.BaoCaoMuonSaches.Add(baocao);
            

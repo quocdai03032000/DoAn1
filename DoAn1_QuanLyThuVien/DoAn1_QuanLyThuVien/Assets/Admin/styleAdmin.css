@@ -26,7 +26,8 @@ body {
     width: 100%;
     background-color: #394551;
     height: 50px;
-    z-index:5;
+    z-index: 5;
+
 }
 
 .body-menu {
@@ -63,7 +64,7 @@ body {
 .submenu {
     width: 250px;
     background-color: #394551;
-    min-height: 140px;
+    /*min-height: 100px;*/
     display: none;
     position: absolute;
     font-size: 20px;
@@ -150,7 +151,7 @@ body {
 .nameAdmin a:hover {
     background-color: #FFD700;
     color: black;
-    font-weight: bold
+    font-weight: bold;    
 }
 
 .nameAdmin:hover .submenu_admin {

@@ -18,8 +18,7 @@ namespace DoAn1_QuanLyThuVien.Models
         public Nullable<System.DateTime> NgayMuon { get; set; }
         public string Mssv { get; set; }
         public Nullable<int> MaSach { get; set; }
-    
-        public virtual Sach Sach { get; set; }
-        public virtual TheThuVien TheThuVien { get; set; }
+        public string HoTen { get; set; }
+        public string TenSach { get; set; }
     }
 }

@@ -28,10 +28,10 @@ body{
 
 
 .bottom-bar {
-    top:0;
+    /*top:0;*/
     padding: 10px 0;
     background: #394551;
-    position:absolute;
+    /*position:absolute;*/
     width:100%;
 }
 

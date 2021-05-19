@@ -7,8 +7,7 @@
 
 <body>
     @using (Html.BeginForm("DsTheThuVien", "Main"))
-    {
-
+    {        
         <div class="Header_Dau_Sach">
             <div class="row align-items-center ">
                 <div class="col-md-4 ">
@@ -58,6 +57,13 @@
                 </tbody>
             </table>
         </div>
+        if (Session["XoaTheThuVien"] == "true")
+        {
+            <script type="text/javascript">
+                  alert('Không thể xoá');
+            </script>
+            Session["XoaTheThuVien"] = null;
+        }
     }
 
 

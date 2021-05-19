@@ -154,8 +154,6 @@
     <Compile Include="Areas\Admin\Controllers\MainController.cs" />
     <Compile Include="Areas\User\Controllers\MainController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\testController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -239,6 +237,7 @@
     <Content Include="Content\img\bg.jpg" />
     <Content Include="Content\img\book-icon.png" />
     <Content Include="Content\img\c3803e4814e94502bff9bd0c728c8d8f.png" />
+    <Content Include="Content\img\empty-cart.png" />
     <Content Include="Content\img\Free_Sample_By_Wix %281%29.jfif" />
     <Content Include="Content\img\HUFLIT_logo %281%29.png" />
     <Content Include="Content\img\logoHuflit%40.png" />
@@ -247,6 +246,8 @@
     <Content Include="Content\img\search.png" />
     <Content Include="Content\img\star-yellow.png" />
     <Content Include="Content\img\star.png" />
+    <Content Include="Content\img\user.png" />
+    <Content Include="Content\img\user1.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -301,6 +302,7 @@
     <Content Include="Areas\User\Views\Main\Cart.cshtml" />
     <Content Include="Areas\User\Views\Main\ChangePass.cshtml" />
     <Content Include="Areas\User\Views\Main\XemThongTinChiTiet.cshtml" />
+    <Content Include="Areas\User\Views\Main\CartNull.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\IMG_scripts.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -324,17 +326,13 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\test\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout_User_1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\User\Models\" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

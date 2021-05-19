@@ -65,6 +65,14 @@
                 </tbody>
             </table>
         </div>
+
+        if (Session["XoaSachMess"] == "yes")
+        {
+            <script type="text/javascript">
+                  alert('Không thể xoá');
+            </script>
+            Session["XoaSachMess"] = null;
+        }
     }
    
 </body>

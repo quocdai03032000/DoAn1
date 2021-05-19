@@ -16,15 +16,23 @@ namespace DoAn1_QuanLyThuVien
             //routes.MapRoute(
             //    name: "User",
             //    url: "{area}/{controller}/{action}",
-            //    defaults: new { area="User", controller = "Main", action = "Index" }
-               
+            //    defaults: new {area ="User",controller = "MainUser", action = "Index" }
+
             //);
 
-            //routes.MapRoute(
-            //    name: "Default",
-            //    url: "{controller}/{action}/{id}",
-            //    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            //);
+
+            routes.MapRoute(
+                "User",
+                "User/{controller}/{action}/{id}",
+                new { Controller = "MainUser", action = "Index", id = UrlParameter.Optional }
+                );
+
+
+            routes.MapRoute(
+                name: "Default",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );
         }
     }
 }

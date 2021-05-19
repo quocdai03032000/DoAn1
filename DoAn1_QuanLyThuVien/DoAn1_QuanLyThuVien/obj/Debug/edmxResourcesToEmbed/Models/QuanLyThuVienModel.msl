@@ -13,6 +13,8 @@
     <EntitySetMapping Name="BaoCaoMuonSaches">
       <EntityTypeMapping TypeName="QuanLyThuVienModel.BaoCaoMuonSach">
         <MappingFragment StoreEntitySet="BaoCaoMuonSach">
+          <ScalarProperty Name="TenSach" ColumnName="TenSach" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
           <ScalarProperty Name="id_BaoCaoMuonSach" ColumnName="id_BaoCaoMuonSach" />
           <ScalarProperty Name="NgayMuon" ColumnName="NgayMuon" />
           <ScalarProperty Name="Mssv" ColumnName="Mssv" />
@@ -23,6 +25,8 @@
     <EntitySetMapping Name="BaoCaoTraSaches">
       <EntityTypeMapping TypeName="QuanLyThuVienModel.BaoCaoTraSach">
         <MappingFragment StoreEntitySet="BaoCaoTraSach">
+          <ScalarProperty Name="TenSach" ColumnName="TenSach" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
           <ScalarProperty Name="NgayMuon" ColumnName="NgayMuon" />
           <ScalarProperty Name="id_BaoCaoTraSach" ColumnName="id_BaoCaoTraSach" />
           <ScalarProperty Name="NgayTra" ColumnName="NgayTra" />

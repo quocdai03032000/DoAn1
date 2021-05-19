@@ -126,15 +126,36 @@ namespace DoAn1_QuanLyThuVien.Areas.User.Controllers
             return cart;
         }
 
+        public ActionResult CartNull()
+        {
+            return View();
+        }
+
         public ActionResult Cart()
         {
-            if (Session["Cart"] == null)
-                return RedirectToAction("Cart", "Main");
-            Cart _cart = Session["Cart"] as Cart;
-            ViewBag.TenUse = Session["User"];
-            ViewBag.MSSV = Session["MSSV"];            
-            return View(_cart);
-        }        
+            //if (Session["Cart"] == null)
+            //    return RedirectToAction("Cart", "Main");
+
+            if (Session["User"] != null)
+            {                
+                Cart _cart = Session["Cart"] as Cart;
+                if(_cart == null)
+                {
+                    return RedirectToAction("CartNull", "Main");
+                }
+                else
+                {
+                    ViewBag.TenUse = Session["User"];
+                    ViewBag.MSSV = Session["MSSV"];
+                    return View(_cart);
+                }
+                
+            }
+            else
+            {
+                return RedirectToAction("Login", "Main");
+            }
+        }     
        
        
 
@@ -148,8 +169,7 @@ namespace DoAn1_QuanLyThuVien.Areas.User.Controllers
 
                 if (sach != null)
                 {
-                    GetCart().Add_Sach_Cart(sach, hinhAnh);
-                    //return RedirectToAction("Cart", "Main");
+                    GetCart().Add_Sach_Cart(sach, hinhAnh);                    
                     return RedirectToAction("Index", "Main");
                 }
                 else
@@ -249,7 +269,38 @@ namespace DoAn1_QuanLyThuVien.Areas.User.Controllers
 
         public ActionResult XemThongTinChiTiet()
         {
-            return View();
+            if (Session["User"] != null)
+            {
+                string mssv = Session["MSSV"].ToString();
+                var sv = database.TheThuViens.Where(a => a.MaThe == mssv).SingleOrDefault();
+                ViewBag.ctmssv = mssv;
+                ViewBag.ctHoTen = sv.HoTen;
+                ViewBag.ctTinhTrang = sv.TinhTrang_TheTV.TenTinhTrang;
+                ViewBag.ctNgayLamThe = sv.NgayLam;
+                ViewBag.ctNgayHetHan = sv.NgayHetHan;
+                //------------------------------------
+                int SlSach = database.Sach_Dang_Muon.Where(a => a.MaThe == mssv).Count();
+                var SachMuon = database.Sach_Dang_Muon.Where(a => a.MaThe == mssv).ToList();
+                var NgayThang = database.Sach_Dang_Muon.Where(a => a.MaThe == mssv).FirstOrDefault();
+                if (SlSach > 0)
+                {
+                    ViewBag.ctSoLuong = SlSach;
+                    foreach (var item in SachMuon)
+                    {
+                        ViewBag.SachDangMuon += item.Sach.DauSach.TenSach + ", ";
+                    }
+                    ViewBag.ctNgayMuon = NgayThang.NgayMuon.ToString();
+                    DateTime NgayTra = (DateTime)NgayThang.NgayMuon;
+                    NgayTra = NgayTra.AddDays(15);
+                    ViewBag.ctNgayTra = NgayTra;
+                }
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Main");
+            }
+            
         }
 
         public ActionResult Contact()

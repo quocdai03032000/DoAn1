@@ -883,6 +883,75 @@ tbody > tr:hover{
     font-size: 13px;
     margin-top: 5px;
 }
+
+/*------------- Giỏ hàng trống----------------*/
+.cartNull{
+    min-height: 80vh;
+}
+.cartNull > img{
+    width: 800px;
+    display: block;
+    margin: 0 auto;
+}
+/**********************************/
+/************ Chi tiết thẻ TV *****/
+/**********************************/
+
+.CTT_ThongTin{    
+    margin-top: 50px;
+    padding: 0px;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 1px;
+}
+.CTT_ThongTin > .row > .CTT_img{
+    margin: 0px;
+    padding: 0px;
+}
+.CTT_img{
+    padding: 0px;
+}
+.CTT_img > img{    
+    width: 300px;
+    height: 400px;
+}
+.CTT_mssv, .CTT_HoTen,.CTT_TinhTrang,.CTT_NgayLam,.CTT_NgayHetHan{
+    margin-top: 15px;
+}
+
+.CTT_mssv{
+    margin-top: 100px;
+}
+.CTT_mssv h4, .CTT_mssv h5, .CTT_HoTen h4, .CTT_HoTen h5, .CTT_TinhTrang h4, .CTT_TinhTrang h5,
+.CTT_NgayLam h4, .CTT_NgayLam h5, .CTT_NgayHetHan h4, .CTT_NgayHetHan h5
+{
+    display: inline;
+    padding-left: 15px;    
+    font-family: "Abeezee",sans-serif;
+    font-size:20px;
+}
+.CTT_SachMuon{
+    
+    margin-top: 50px;   
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 1px;
+}     
+
+.CTT_header{
+    text-align: center;
+    margin-top: 10px;
+    font-family: "Abeezee",sans-serif;
+    
+}
+.CTT_header > h3{
+    font-size:23px;
+    font-family: "Abeezee",sans-serif;
+}
+.CTT_soSachMuon{
+    margin-top: 50px;
+}
+.CTT_body{
+    min-height:80vh;
+}
 /**********************************/
 /**********************************/
 /**********************************/
